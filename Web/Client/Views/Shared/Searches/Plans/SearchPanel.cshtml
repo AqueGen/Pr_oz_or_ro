@@ -1,0 +1,69 @@
+﻿@using Kapitalist.Web.Client.Helpers.Html
+@using Kapitalist.Web.Resources
+@model Kapitalist.Web.Client.ViewModels.Plans.PlansViewModel
+@using (Ajax.BeginForm("Index", "Plans", new AjaxOptions() {HttpMethod = "GET", UpdateTargetId = "procurementResult", InsertionMode = InsertionMode.Replace}))
+{
+    <div class="row">
+
+        <div class="col-xs-12">
+            @Html.ActionLink("Tenders", "Index", "Tenders", null, null)
+            @Html.ActionLink("Plans", "Index", "Plans", null, null)
+        </div>
+        <h2>
+            <span class="col-xs-12">@GlobalRes.SearchTender </span>
+        </h2>
+    </div>
+
+    <div class="row">
+        @Ajax.AddActionLink(@GlobalRes.Keyword, "GetTemplate", new {template = "Keyword"}, new AjaxOptions {HttpMethod = "GET", UpdateTargetId = "blocks", InsertionMode = InsertionMode.InsertAfter}, new {@class = "btn query-btn"})
+        @Ajax.AddActionLink(@GlobalRes.CpvCode, "GetTemplate", new {template = "CpvCode"}, new AjaxOptions {HttpMethod = "GET", UpdateTargetId = "blocks", InsertionMode = InsertionMode.InsertAfter}, new {@class = "btn query-btn"})
+        @Ajax.AddActionLink(@GlobalRes.GsinCode, "GetTemplate", new {template = "GsinCode"}, new AjaxOptions {HttpMethod = "GET", UpdateTargetId = "blocks", InsertionMode = InsertionMode.InsertAfter}, new {@class = "btn query-btn"})
+        @Ajax.AddActionLink(@GlobalRes.PlanNumber, "GetTemplate", new {template = "PlanNumber"}, new AjaxOptions {HttpMethod = "GET", UpdateTargetId = "blocks", InsertionMode = InsertionMode.InsertAfter}, new {@class = "btn query-btn"})
+        @Ajax.AddActionLink(@GlobalRes.Procurer, "GetTemplate", new {template = "Procurer"}, new AjaxOptions {HttpMethod = "GET", UpdateTargetId = "blocks", InsertionMode = InsertionMode.InsertAfter}, new {@class = "btn query-btn"})
+        @Ajax.AddActionLink(@GlobalRes.Region, "GetTemplate", new {template = "Region"}, new AjaxOptions {HttpMethod = "GET", UpdateTargetId = "blocks", InsertionMode = InsertionMode.InsertAfter}, new {@class = "btn query-btn"})
+        @Ajax.AddActionLink(@GlobalRes.ProcedureType, "GetTemplate", new {template = "ProcedureType"}, new AjaxOptions {HttpMethod = "GET", UpdateTargetId = "blocks", InsertionMode = InsertionMode.InsertAfter}, new {@class = "btn query-btn"})
+
+        @Ajax.AddActionLink(@GlobalRes.ProcedurePeriod, "GetTemplate", new {template = "ProcedurePeriod"}, new AjaxOptions {HttpMethod = "GET", UpdateTargetId = "blocks", InsertionMode = InsertionMode.InsertAfter, OnComplete = "initProcedurePeriod"}, new {@id = Html.IdFor(m => m.Query.ProcedurePeriod), @class = "btn query-btn block-procedurePeriod"})
+
+
+    </div>
+
+
+    <div class="row">
+        <div id="blocks" class="col-xs-12 form-group">
+            @if (Model != null)
+            {
+                Html.RenderPartial("Searches/Plans/QueriesPartial", Model.Query);
+            }
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-xs-12">
+            <button id="search" type="submit" class="btn btn-default btn-lg col-xs-12 square-background-blue">@GlobalRes.Search</button>
+        </div>
+    </div>
+}
+
+
+<div id="procurementResult">
+    @{
+        Html.RenderPartial("Searches/Plans/PlanTable", Model);
+    }
+</div>
+
+
+@section scripts{
+    @Scripts.Render("~/bundles/plans/query-blocks")
+    @Scripts.Render("~/bundles/query-blocks-url-pushstate")
+    @Scripts.Render("~/bundles/kendo-ui-configuration")
+
+    <script>
+        $('#@Html.IdFor(m => m.Query.ProcedurePeriod)').on('click', initApplicationsSubmissionPeriod);
+
+        function initProcedurePeriod(e) {
+            disableDatePeriodButton(e);
+            initDateTimePickersPeriod('#ProcedurePeriod_StartDate', '#ProcedurePeriod_EndDate');
+        }
+    </script>
+}

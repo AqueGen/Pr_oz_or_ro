@@ -1,0 +1,117 @@
+﻿@using Kapitalist.Web.Resources
+@{
+	Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="container">
+	<div id="newsCarousel" class="carousel slide hidden-xs row" data-ride="carousel">
+		<ol class="carousel-indicators">
+			<li data-target="#newsCarousel" data-slide-to="0" class="active"></li>
+			<li data-target="#newsCarousel" data-slide-to="1" class=""></li>
+			<li data-target="#newsCarousel" data-slide-to="2" class=""></li>
+		</ol>
+
+		<div class="carousel-inner">
+			<div class="item active news" style="background-image: url('@Url.Content("~/Content/images/news-slider/1.jpg")');">
+				<div class="container">
+					<div class="carousel-caption">
+						<h1>Header</h1>
+						<p>Some information</p>
+						<p>
+							<a class="btn btn-lg btn-primary" href="#" role="button">Some button</a>
+						</p>
+					</div>
+				</div>
+			</div>
+			<div class="item news" style="background-image: url('@Url.Content("~/Content/images/news-slider/2.jpg")');">
+				<div class="container">
+					<div class="carousel-caption">
+						<h1>Header</h1>
+						<p>Some information</p>
+						<p>
+							<a class="btn btn-lg btn-primary" href="#" role="button">Some button</a>
+						</p>
+					</div>
+				</div>
+			</div>
+			<div class="item news" style="background-image: url('@Url.Content("~/Content/images/news-slider/3.jpg")');">
+				<div class="container">
+					<div class="carousel-caption">
+						<h1>Header</h1>
+						<p>Some information</p>
+						<p>
+							<a class="btn btn-lg btn-primary" href="#" role="button">Some button</a>
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<a class="left carousel-control" href="#newsCarousel" data-slide="prev">
+			<span class="glyphicon glyphicon-chevron-left"></span>
+		</a>
+		<a class="right carousel-control" href="#newsCarousel" data-slide="next">
+			<span class="glyphicon glyphicon-chevron-right"></span>
+		</a>
+	</div>
+
+	<div id="mainControl" class="row">
+		<a class="btn col-sm-4 col-xs-12 square-background-yellow" href="@Url.Action("Type", "DraftTenderSwitch")">
+			<div class="square square-white">
+				<span>@GlobalRes.Customer</span>
+				<br/>
+				<span class="less-by-65">@GlobalRes.CustomerUnderLine</span>
+			</div>
+
+		</a>
+		<a class="btn col-sm-4 col-xs-12 square-background-blue">
+			<div class="square square-yellow">
+				<span>@GlobalRes.Provider</span>
+				<br/>
+				<span class="less-by-65">@GlobalRes.ProviderUnderLine</span>
+			</div>
+		</a>
+		<a class="btn col-sm-4 col-xs-12 square-background-white" href="@Url.Action("Index", "Tenders")">
+			<div class="square square-yellow">
+				<span>@GlobalRes.Search</span>
+				<br/>
+				<span class="less-by-65">@GlobalRes.SearchUnderLine</span>
+			</div>
+		</a>
+	</div>
+    
+
+
+    @{
+		Html.RenderPartial("Searches/Tenders/SearchPanel");
+	}
+
+
+
+	<div class="row hidden-xs">
+		<span class="works-with-us col-sm-2">@GlobalRes.WorkWithUs</span>
+		<i class="works-with-us-button fa fa-5x fa-angle-left prev-slide col-sm-1"></i>
+		<div id="partnerCarousel" class="carousel slide col-sm-8" data-interval="0" data-ride="carousel">
+			<div class="carousel-inner">
+				@for (int page = 0; page < 2; page++)
+				{
+					string isActive = page == 0 ? "active" : string.Empty;
+
+					<div class="item @isActive">
+						<ul class="list-inline works-with-us-image inpu">
+							@for (int i = 0; i < 5; i++)
+							{
+								<li>
+									<img src="~/Content/images/partner-logo/xiaomi-logo.png" alt="Логотип Xiaomi"/>
+								</li>
+							}
+						</ul>
+					</div>
+				}
+			</div>
+		</div>
+		<i class="works-with-us-button fa fa-5x fa-angle-right next-slide col-sm-1"></i>
+	</div>
+</div>
+
+@Scripts.Render("~/bundles/home/index")

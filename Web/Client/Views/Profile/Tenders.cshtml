@@ -1,0 +1,25 @@
+﻿@model Kapitalist.Web.Client.ViewModels.Profile.TendersViewModel
+@{
+    ViewBag.Title = "Drafts";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+    <div class="header-and-body-content">
+        <h2>Tender Drafts</h2>
+
+        <div>
+            @if (Model?.Tenders != null && (Model?.Tenders).Any())
+            {
+                foreach (var item in Model.Tenders)
+                {
+                    <div>
+                        <div>@item</div>
+                        <a href="@Url.Action("Info", "TenderInfo", new {tenderGuid = item})">Подробнее</a>
+                    </div>
+                    <br />
+                }
+            }
+        </div>
+    </div>
+</div>

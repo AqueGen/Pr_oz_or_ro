@@ -1,0 +1,55 @@
+﻿@using Kapitalist.Web.Client.Helpers.Html
+@model IEnumerable<Kapitalist.Web.Client.ViewModels.Published.TenderComplaintViewModel>
+
+@if (Model != null && Model.Any())
+{
+    <div>
+        <fieldset>
+            <legend>@GlobalRes.Complaints</legend>
+            @foreach (var complaint in Model)
+            {
+                <div class="col-md-10">
+                    <div class="col-md-12">
+                        <span class="col-md-4">@GlobalRes.Title:</span>
+                        <span class="col-md-8" name="@Html.NameFor(m => complaint.Title)">@complaint.Title</span>
+                    </div>
+                    <div class="col-md-12">
+                        <span class="col-md-4">@GlobalRes.Description:</span>
+                        <span class="col-md-8" name="@Html.NameFor(m => complaint.Description)">@complaint.Description</span>
+                    </div>
+                    <div class="col-md-12">
+                        <span class="col-md-4">@GlobalRes.Date:</span>
+                        <span class="col-md-8" name="@Html.NameFor(m => complaint.Date)">@complaint.Date</span>
+                    </div>
+                    <div class="col-md-12">
+                        <span class="col-md-4">@GlobalRes.Status:</span>
+                        <span class="col-md-8" name="@Html.NameFor(m => complaint.Status)">@complaint.Status</span>
+                    </div>
+                    <div class="col-md-12">
+                        <span class="col-md-4">@GlobalRes.Type:</span>
+                        <span class="col-md-8" name="@Html.NameFor(m => complaint.Type)">@complaint.Type</span>
+                    </div>
+                    <div class="col-md-12">
+                        <span class="col-md-4">@GlobalRes.ResolutionType:</span>
+                        <span class="col-md-8" name="@Html.NameFor(m => complaint.ResolutionType)">@complaint.ResolutionType</span>
+                    </div>
+                    <div class="col-md-12">
+                        <span class="col-md-4">@GlobalRes.Answer:</span>
+                        @if (string.IsNullOrWhiteSpace(complaint.Resolution))
+                        {
+                            <a href="@Url.Action("AddAnswer", "Complaint", new {tenderGuid = complaint.TenderGuid, questionId = complaint.StringId})"
+                               class="btn btn-default square-background-blue">
+                                @GlobalRes.AddAnswer
+                            </a>
+                        }
+                        else
+                        {
+                            <span class="col-md-8" name="@Html.NameFor(m => complaint.Resolution)">@complaint.Resolution</span>
+                        }
+                    </div>
+                </div>
+            }
+        </fieldset>
+
+    </div>
+}

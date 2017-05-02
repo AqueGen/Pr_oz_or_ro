@@ -1,0 +1,9 @@
+diff a/Web/Client/Client.csproj b/Web/Client/Client.csproj	(rejected hunks)
+@@ -821,6 +821,7 @@
+      <None Include="Project_Readme.html" />
+    </ItemGroup>
+    <ItemGroup>
+++<<<<<<< Updated upstream
+ +    <ProjectReference Include="..\..\Core\OpenProcurement\OpenProcurement.csproj">
+ +      <Project>{CC2CBB07-0C6C-434E-854C-894705C20FAB}</Project>
+ +      <Name>OpenProcurement</Name>

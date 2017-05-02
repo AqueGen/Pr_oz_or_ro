@@ -1,0 +1,45 @@
+﻿ @model Kapitalist.Web.Client.ViewModels.Published.PlanViewModel
+
+<div class="form-group">
+    <label class="col-md-3 control-label">Budget.Id</label>
+    <div class="col-md-9">
+        @Html.TextBoxFor(m => m.Budget.Id, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Budget.Id, "", new { @class = "text-danger" })
+    </div>
+</div>
+<div class="form-group">
+    <label class="col-md-3 control-label">Budget.Description</label>
+    <div class="col-md-9">
+        @Html.TextBoxFor(m => m.Budget.Description, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Budget.Description, "", new { @class = "text-danger" })
+    </div>
+</div>
+<div class="form-group">
+    <label class="col-md-3 control-label">Budget.Notes</label>
+    <div class="col-md-9">
+        @Html.TextBoxFor(m => m.Budget.Notes, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Budget.Notes, "", new { @class = "text-danger" })
+    </div>
+</div>
+<div class="form-group">
+    <label class="col-md-3 control-label">Budget.Amount</label>
+    <div class="col-md-9">
+        @Html.TextBoxFor(m => m.Budget.Amount, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Budget.Amount, "", new { @class = "text-danger" })
+    </div>
+</div>
+<div class="form-group">
+    <label class="col-md-3 control-label">Budget.Currency</label>
+    <div class="col-md-9">
+        @Html.TextBoxFor(m => m.Budget.Currency, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Budget.Currency, "", new { @class = "text-danger" })
+    </div>
+</div>
+
+<div class="form-group">
+    <label class="col-md-3 control-label">Budget.Year</label>
+    <div class="col-md-9">
+        @Html.TextBoxFor(m => m.Budget.Year, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Budget.Year, "", new { @class = "text-danger" })
+    </div>
+</div>

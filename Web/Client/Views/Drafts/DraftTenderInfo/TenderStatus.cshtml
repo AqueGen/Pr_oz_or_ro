@@ -1,0 +1,17 @@
+﻿@using System.Web.Mvc.Ajax
+@model Guid?
+
+<div class="container">
+    <div class="header-and-body-content">
+        @if (Model == null)
+        {
+            <div>Тендер ещё не создан. Обновите эту страницу через 15 секунд.</div>
+        }
+        else
+        {
+            <div>Тендер создан.</div>
+            <div>Чтобы просмотреть подробнее перейдите по ссылке</div>
+            <a href="@Url.Action("Info", "TenderInfo", new {tenderGuid = Model})">Подробнее о тендере</a>
+        }
+    </div>
+</div>

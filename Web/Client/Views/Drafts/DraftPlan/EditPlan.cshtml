@@ -1,0 +1,29 @@
+﻿@model Kapitalist.Web.Client.ViewModels.Drafts.DraftPlanViewModel
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container header-and-body-content">
+    <h2>Редактировать План.</h2>
+    <h3>Крок 1 з 3</h3>
+    @using (Html.BeginForm("EditPlan", "DraftPlan", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+    {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+        //Html.RenderPartial("Plan/CreateEditPlan", Model);
+
+        <div class="form-group">
+            <div class="col-md-offset-3 col-md-9">
+                <input type="submit" value="Сохранить" class="btn btn-default col-xs-12 col-md-3 square-background-blue btn-lg" />
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-3 col-md-9">
+                <a href="@Url.Action("Items", "DraftPlan", new {planGuid = Model.Guid})" class="btn btn-default col-xs-12 col-md-3 square-background-blue btn-lg">Дальше</a>
+            </div>
+        </div>
+    }
+</div>

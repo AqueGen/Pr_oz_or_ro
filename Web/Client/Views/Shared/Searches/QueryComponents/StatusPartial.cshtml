@@ -1,0 +1,11 @@
+﻿@using Kapitalist.Web.Resources
+@model Kapitalist.Web.Client.ViewModels.Tenders.TenderQueryViewModel
+
+
+<div class="block input-group">
+    <label class="input-group-addon control-label">@GlobalRes.Status</label>
+    @Html.TextBoxFor(m => m.Status, new {@class = "form-control query", @type="text", @value=Model?.Status })
+    <a class="delete input-group-addon col-xd-1">
+        <i class="fa fa-times"></i>
+    </a>
+</div>

@@ -1,0 +1,44 @@
+﻿@using Kapitalist.Data.Models.Consts
+@using Kapitalist.Data.Models.Enums
+@*@model Kapitalist.Data.Models.Enums.ProcuringEntityType*@
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container header-and-body-content">
+    <h2 class="text-center">@GlobalRes.SelectTenderType.</h2>
+
+    <div>
+        <a href="@Url.Action("AddTender", "DraftTenderBelowThreshold")">@GlobalRes.BelowThreshold</a>
+    </div>
+    <div>
+        <a href="@Url.Action("AddTender", "DraftTenderAboveThresholdUA")">@GlobalRes.AboveThresholdUA</a>
+    </div>
+    <div>
+        <a href="@Url.Action("AddTender", "DraftTenderAboveThresholdEU")">@GlobalRes.AboveThresholdEN</a>
+    </div>
+    <div>
+        <a href="@Url.Action("AddTender", "DraftTenderLimitedReporting")">@GlobalRes.TenderLimitedReporting</a>
+    </div>
+    <div>
+        <a href="@Url.Action("AddTender", "DraftTenderLimited")">@GlobalRes.TenderLimited</a>
+    </div>
+    <div>
+        <a href="@Url.Action("AddTender", "DraftTenderLimitedQuick")">@GlobalRes.TenderLimitedQuick</a>
+    </div>
+    
+    @*@if (Model == ProcuringEntityType.Defense)
+    {
+        <div>
+            <a href="@Url.Action("AddTender", "DraftTenderDefense")">@GlobalRes.TenderDefense</a>
+        </div>
+    }
+    else
+    {
+        <div>
+            <a href="@Url.Action("AddTender", "DraftTenderDefense")" class="not-active">@GlobalRes.TenderDefense</a>
+        </div>
+    }*@
+
+</div>

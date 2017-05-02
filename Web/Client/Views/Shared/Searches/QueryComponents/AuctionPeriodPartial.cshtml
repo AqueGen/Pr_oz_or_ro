@@ -1,0 +1,13 @@
+﻿@using Kapitalist.Web.Resources
+@model Kapitalist.Web.Client.ViewModels.Tenders.TenderQueryViewModel
+
+
+<div class="block input-group block-auctionPeriod">
+    <label class="input-group-addon control-label">@GlobalRes.AuctionDate</label>
+    @Html.EditorFor(m => m.AuctionPeriod.StartDate)
+    <label class="input-group-addon control-label">-</label>
+    @Html.EditorFor(m => m.AuctionPeriod.EndDate)
+    <a class="delete input-group-addon col-xd-1">
+        <i class="fa fa-times"></i>
+    </a>
+</div>

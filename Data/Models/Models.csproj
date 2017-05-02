@@ -1,0 +1,207 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{BC57962A-3626-4DF9-9D90-596925843E26}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Kapitalist.Data.Models</RootNamespace>
+    <AssemblyName>Data.Models</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Address.cs" />
+    <Compile Include="Attributes\TruncateAttribute.cs" />
+    <Compile Include="Consts\AwardCriteria.cs" />
+    <Compile Include="DTO\ContactPointDTO.cs" />
+    <Compile Include="Enums\ComplaintType.cs" />
+    <Compile Include="Consts\ContractStatus.cs" />
+    <Compile Include="Enums\CancellationType.cs" />
+    <Compile Include="Consts\CancellationStatus.cs" />
+    <Compile Include="Consts\BidStatus.cs" />
+    <Compile Include="Consts\AwardStatus.cs" />
+    <Compile Include="Consts\ComplaintStatus.cs" />
+    <Compile Include="Consts\AvailableLanguage.cs" />
+    <Compile Include="BaseAward.cs" />
+    <Compile Include="BaseBid.cs" />
+    <Compile Include="Budget.cs" />
+    <Compile Include="BaseCancellation.cs" />
+    <Compile Include="BaseFeatureValue.cs" />
+    <Compile Include="BaseChange.cs" />
+    <Compile Include="BaseComplaint.cs" />
+    <Compile Include="BaseClassification.cs" />
+    <Compile Include="BasePlan.cs" />
+    <Compile Include="BasePlanOrganization.cs" />
+    <Compile Include="Consts\Currency.cs" />
+    <Compile Include="ContactPoint.cs" />
+    <Compile Include="BaseContract.cs" />
+    <Compile Include="DeliveryLocation.cs" />
+    <Compile Include="BaseDocument.cs" />
+    <Compile Include="Consts\DocumentTypes.cs" />
+    <Compile Include="BaseFeature.cs" />
+    <Compile Include="Drafts\BaseDraftContract.cs" />
+    <Compile Include="Drafts\BaseDraftDocument.cs" />
+    <Compile Include="Drafts\BaseDraftItem.cs" />
+    <Compile Include="Drafts\BaseDraftLot.cs" />
+    <Compile Include="Drafts\BaseDraftPlan.cs" />
+    <Compile Include="Drafts\BaseDraftTender.cs" />
+    <Compile Include="Drafts\Interfaces\IDraftAuctioned.cs" />
+    <Compile Include="Drafts\Interfaces\IDraftContract.cs" />
+    <Compile Include="Drafts\Interfaces\IDraftDocument.cs" />
+    <Compile Include="Drafts\Interfaces\IDraftItem.cs" />
+    <Compile Include="Drafts\Interfaces\IDraftLot.cs" />
+    <Compile Include="Drafts\Interfaces\IDraftPlan.cs" />
+    <Compile Include="Drafts\Interfaces\IDraftTender.cs" />
+    <Compile Include="DTO\AwardDTO.cs" />
+    <Compile Include="DTO\BidDTO.cs" />
+    <Compile Include="DTO\CancellationDTO.cs" />
+    <Compile Include="DTO\ClassificationDTO.cs" />
+    <Compile Include="DTO\ComplaintDTO.cs" />
+    <Compile Include="DTO\ContractDTO.cs" />
+    <Compile Include="DTO\DocumentDTO.cs" />
+    <Compile Include="DTO\DraftFeatureDTO.cs" />
+    <Compile Include="DTO\DraftLotDTO.cs" />
+    <Compile Include="DTO\DraftPlanClassificationDTO.cs" />
+    <Compile Include="DTO\DraftPlanDTO.cs" />
+    <Compile Include="DTO\DraftPlanItemClassificationDTO.cs" />
+    <Compile Include="DTO\DraftTenderDocumentDTO.cs" />
+    <Compile Include="DTO\DraftTenderDTO.cs" />
+    <Compile Include="DTO\FeatureDTO.cs" />
+    <Compile Include="DTO\FeatureValueDTO.cs" />
+    <Compile Include="DTO\IdentifierDTO.cs" />
+    <Compile Include="DTO\ItemDTO.cs" />
+    <Compile Include="DTO\LotDTO.cs" />
+    <Compile Include="DTO\OrganizationDTO.cs" />
+    <Compile Include="DTO\PlanClassificationDTO.cs" />
+    <Compile Include="DTO\PlanDTO.cs" />
+    <Compile Include="DTO\PlanProcuringEntityDTO.cs" />
+    <Compile Include="DTO\PlanProcuringEntityIdentifierDTO.cs" />
+    <Compile Include="DTO\QueryDTO\BaseQueryDTO.cs" />
+    <Compile Include="DTO\QueryDTO\PlanQueryDTO.cs" />
+    <Compile Include="DTO\QueryDTO\TenderQueryDTO.cs" />
+    <Compile Include="DTO\QuestionDTO.cs" />
+    <Compile Include="DTO\TenderComplaintDocumentDTO.cs" />
+    <Compile Include="DTO\TenderComplaintDTO.cs" />
+    <Compile Include="DTO\TenderDTO.cs" />
+    <Compile Include="EnquiryPeriod.cs" />
+    <Compile Include="Guarantee.cs" />
+    <Compile Include="Interfaces\IAddress.cs" />
+    <Compile Include="Interfaces\IAward.cs" />
+    <Compile Include="Interfaces\IBid.cs" />
+    <Compile Include="Interfaces\IBudget.cs" />
+    <Compile Include="Interfaces\ICancellation.cs" />
+    <Compile Include="Interfaces\IChange.cs" />
+    <Compile Include="Interfaces\IClassification.cs" />
+    <Compile Include="Interfaces\IComplaint.cs" />
+    <Compile Include="Interfaces\IComplexType.cs" />
+    <Compile Include="Interfaces\IContactPoint.cs" />
+    <Compile Include="Interfaces\IContract.cs" />
+    <Compile Include="Interfaces\IDeliveryLocation.cs" />
+    <Compile Include="Interfaces\IDocument.cs" />
+    <Compile Include="Interfaces\IFeature.cs" />
+    <Compile Include="Interfaces\IFeatureValue.cs" />
+    <Compile Include="Interfaces\IGuarantee.cs" />
+    <Compile Include="Interfaces\IGuid.cs" />
+    <Compile Include="Interfaces\IItem.cs" />
+    <Compile Include="Interfaces\ILot.cs" />
+    <Compile Include="Interfaces\ILotValue.cs" />
+    <Compile Include="Interfaces\IModified.cs" />
+    <Compile Include="Interfaces\IIdentifier.cs" />
+    <Compile Include="Interfaces\INewTender.cs" />
+    <Compile Include="Interfaces\IOrganization.cs" />
+    <Compile Include="Interfaces\IParameter.cs" />
+    <Compile Include="Interfaces\IPlan.cs" />
+    <Compile Include="Interfaces\IPlanTender.cs" />
+    <Compile Include="Interfaces\IProcuringEntity.cs" />
+    <Compile Include="Interfaces\IProject.cs" />
+    <Compile Include="Interfaces\IPublished.cs" />
+    <Compile Include="Interfaces\IQuestion.cs" />
+    <Compile Include="Interfaces\IRevision.cs" />
+    <Compile Include="Interfaces\IStringId.cs" />
+    <Compile Include="Interfaces\ITender.cs" />
+    <Compile Include="Interfaces\IAuctioned.cs" />
+    <Compile Include="Interfaces\ITitled.cs" />
+    <Compile Include="Interfaces\IUnit.cs" />
+    <Compile Include="BaseIdentifier.cs" />
+    <Compile Include="BaseItem.cs" />
+    <Compile Include="BaseLot.cs" />
+    <Compile Include="Interfaces\IValue.cs" />
+    <Compile Include="BaseLotValue.cs" />
+    <Compile Include="BaseOrganization.cs" />
+    <Compile Include="BaseParameter.cs" />
+    <Compile Include="Consts\LotStatus.cs" />
+    <Compile Include="Consts\NegotiationCause.cs" />
+    <Compile Include="NewTender.cs" />
+    <Compile Include="Period.cs" />
+    <Compile Include="PlanTender.cs" />
+    <Compile Include="Consts\PlanTenderStatus.cs" />
+    <Compile Include="Consts\ProcurementMethod.cs" />
+    <Compile Include="Consts\ProcurementMethodType.cs" />
+    <Compile Include="Enums\ProcuringEntityType.cs" />
+    <Compile Include="Project.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="BaseQuestion.cs" />
+    <Compile Include="BaseTender.cs" />
+    <Compile Include="Enums\RelatedTo.cs" />
+    <Compile Include="BaseRevision.cs" />
+    <Compile Include="Consts\TenderStatus.cs" />
+    <Compile Include="Enums\ResolutionType.cs" />
+    <Compile Include="Unit.cs" />
+    <Compile Include="Value.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Web\Framework\Framework.csproj">
+      <Project>{B1D9F6D3-DB56-4379-8A69-397592DCA8F9}</Project>
+      <Name>Framework</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

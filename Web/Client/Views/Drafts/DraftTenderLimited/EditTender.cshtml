@@ -1,0 +1,118 @@
+@using Kapitalist.Data.Models
+@using Kapitalist.Data.Models.Consts
+@using Kapitalist.Web.Resources
+@model Kapitalist.Web.Client.ViewModels.Drafts.DraftTenderLimitedViewModel
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container header-and-body-content">
+    <h2>@GlobalRes.EditDraftTender.</h2>
+
+    @using (Html.BeginForm("EditTender", "DraftTenderLimited", FormMethod.Post, new {@class = "form-horizontal", role = "form"}))
+    {
+        @Html.HiddenFor(m => m.Guid)
+        <div class="form-group">
+            <label class="col-md-3 control-label">@GlobalRes.Title</label>
+            <div class="col-md-9">
+                @Html.TextBoxFor(m => m.Title, new {@class = "form-control"})
+                @Html.ValidationMessageFor(m => m.Title, "", new {@class = "text-danger"})
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-md-3 control-label">@GlobalRes.Description</label>
+            <div class="col-md-9">
+                @Html.TextBoxFor(m => m.Description, new {@class = "form-control"})
+                @Html.ValidationMessageFor(m => m.Description, "", new {@class = "text-danger"})
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-md-3 control-label">@GlobalRes.AwardCriteria</label>
+            <div class="col-md-9">
+                @{
+                    var awardCriteriaList = new List<SelectListItem>
+                    {
+                        new SelectListItem {Text = GlobalRes.MostEconomicallyBetterOffer, Value = AwardCriteria.MOST_ECONOMICALLY_BETTER_OFFER, Selected = Model.AwardCriteria == AwardCriteria.MOST_ECONOMICALLY_BETTER_OFFER},
+                        new SelectListItem {Text = GlobalRes.Price, Value = AwardCriteria.LOWEST_COST, Selected = Model.AwardCriteria == AwardCriteria.LOWEST_COST}
+                    };
+                }
+                @Html.DropDownListFor(m => m.AwardCriteria, awardCriteriaList, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.AwardCriteria, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-md-3 control-label">@GlobalRes.Reason</label>
+            <div class="col-md-9">
+                @{
+                    var causeList = new List<SelectListItem>
+                    {
+                        new SelectListItem {Text = "cò. 35, ï. 1", Value = "artContestIP", Selected = Model.Cause == "artContestIP"},
+                        new SelectListItem {Text = "cò. 35, ï. 2", Value = "noCompetition", Selected = Model.Cause == "noCompetition"},
+                        new SelectListItem {Text = "cò. 35, ï. 3", Value = "quick", Selected = Model.Cause == "quick"},
+                        new SelectListItem {Text = "cò. 35, ï. 4", Value = "twiceUnsuccessful", Selected = Model.Cause == "twiceUnsuccessful"},
+                        new SelectListItem {Text = "cò. 35, ï. 5", Value = "additionalPurchase", Selected = Model.Cause == "additionalPurchase"},
+                        new SelectListItem {Text = "cò. 35, ï. 6", Value = "additionalConstruction", Selected = Model.Cause == "additionalConstruction"},
+                        new SelectListItem {Text = "cò. 35, ï. 7", Value = "stateLegalServices", Selected = Model.Cause == "stateLegalServices"},
+                    };
+                }
+                @Html.DropDownListFor(m => m.Cause, causeList, new {@class = "form-control"})
+                @Html.ValidationMessageFor(m => m.Cause, "", new {@class = "text-danger"})
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-md-3 control-label">@GlobalRes.Reasoning</label>
+            <div class="col-md-9">
+                @Html.TextBoxFor(m => m.CauseDescription, new {@class = "form-control"})
+                @Html.ValidationMessageFor(m => m.CauseDescription, "", new {@class = "text-danger"})
+            </div>
+        </div>
+
+        <div>
+            <div class="col-md-3 control-label">
+                <h3>@GlobalRes.Procurement</h3>
+            </div>
+            <div class="clearfix"></div>
+            <div class="form-group">
+                <label class="col-md-3 control-label">@GlobalRes.Amount</label>
+                <div class="col-md-9">
+                    @Html.EditorFor(m => m.Value.Amount, new {htmlAttributes = new {@class = "currency"}})
+                    @Html.ValidationMessageFor(m => m.Value.Amount, "", new {@class = "text-danger"})
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-3 control-label">@GlobalRes.Currency</label>
+                <div class="col-md-9">
+                    @{
+                        var currencyList = new List<SelectListItem>
+                        {
+                            new SelectListItem {Text = Currency.UAH, Value = Currency.UAH, Selected = Model.Value?.Currency == Currency.UAH},
+                            new SelectListItem {Text = Currency.USD, Value = Currency.USD, Selected = Model.Value?.Currency == Currency.USD},
+                            new SelectListItem {Text = Currency.EUR, Value = Currency.EUR, Selected = Model.Value?.Currency == Currency.EUR},
+                            new SelectListItem {Text = Currency.GBP, Value = Currency.GBP, Selected = Model.Value?.Currency == Currency.GBP},
+                            new SelectListItem {Text = Currency.RUB, Value = Currency.RUB, Selected = Model.Value?.Currency == Currency.RUB}
+                        };
+                    }
+                    @Html.DropDownListFor(m => m.Value.Currency, currencyList, new {@class = "form-control"})
+                    @Html.ValidationMessageFor(m => m.Value.Currency, "", new {@class = "text-danger"})
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-3 control-label">@GlobalRes.VATIncluded</label>
+                <div class="col-md-9">
+                    @Html.CheckBoxFor(m => m.Value.VATIncluded, new {@class = "checkbox-inline"})
+                    @Html.ValidationMessageFor(m => m.Value.VATIncluded, "", new {@class = "text-danger"})
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-3 col-md-9">
+                <a href="@Url.Action("Info", "DraftTenderInfo", new {tenderGuid = Model.Guid})" class="btn btn-default col-xs-12 col-md-3 square-background-yellow btn-lg">@GlobalRes.Cancel</a>
+                <input type="submit" value="@GlobalRes.Save" class="btn btn-default col-xs-12 col-md-3 square-background-blue btn-lg"/>
+            </div>
+        </div>
+    }
+</div>

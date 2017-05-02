@@ -1,0 +1,43 @@
+﻿@using Kapitalist.Web.Client.Helpers.Html
+@model IEnumerable<Kapitalist.Web.Client.ViewModels.Published.QuestionViewModel>
+
+@if (Model != null && Model.Any())
+{
+    <div>
+        <fieldset>
+            <legend>@GlobalRes.Question</legend>
+            @foreach (var question in Model)
+            {
+                <div class="col-md-10">
+                    <div class="col-md-12">
+                        <span class="col-md-4">@GlobalRes.Title:</span>
+                        <span class="col-md-8" name="@Html.NameFor(m => question.Title)">@question.Title</span>
+                    </div>
+                    <div class="col-md-12">
+                        <span class="col-md-4">@GlobalRes.Description:</span>
+                        <span class="col-md-8" name="@Html.NameFor(m => question.Description)">@question.Description</span>
+                    </div>
+                    <div class="col-md-12">
+                        <span class="col-md-4">@GlobalRes.Date:</span>
+                        <span class="col-md-8" name="@Html.NameFor(m => question.Date)">@question.Date</span>
+                    </div>
+                    <div class="col-md-12">
+                        <span class="col-md-4">@GlobalRes.Answer:</span>
+                        @if (string.IsNullOrWhiteSpace(question.Answer))
+                        {
+                            <a href="@Url.Action("AddAnswer", "Question", new {tenderGuid = question.TenderGuid, questionId = question.StringId})"
+                               class="btn btn-default square-background-blue">
+                                @GlobalRes.AddAnswer
+                            </a>
+                        }
+                        else
+                        {
+                            <span class="col-md-8" name="@Html.NameFor(m => question.Answer)">@question.Answer</span>
+                        }
+                    </div>
+                </div>
+            }
+        </fieldset>
+
+    </div>
+}

@@ -1,0 +1,44 @@
+﻿@using Kapitalist.Web.Client.Helpers.Html
+@model Kapitalist.Web.Client.ViewModels.Tenders.TenderQueryViewModel
+
+
+@foreach (var query in QueryHelper.ToQueryList(@Request.Url.Query))
+{
+    <div>@Html.GenerateQueryComponentString(query.Key, query.Value)</div>
+}
+@if (Model != null)
+{
+    if (Model.ApplicationsSubmissionPeriod != null)
+    {
+        Html.RenderPartial("Searches/QueryComponents/ApplicationsSubmissionPeriodPartial", Model);
+    }
+    if (Model.AuctionPeriod != null)
+    {
+        Html.RenderPartial("Searches/QueryComponents/AuctionPeriodPartial", Model);
+    }
+    if (Model.ClarificationPeriod != null)
+    {
+        Html.RenderPartial("Searches/QueryComponents/ClarificationPeriodPartial", Model);
+    }
+
+    if (Model.QualificationPeriod != null)
+    {
+        Html.RenderPartial("Searches/QueryComponents/QualificationPeriodPartial", Model);
+    }
+}
+
+
+
+@*@if (Model != null)
+{
+    if (Model.Keyword != null)
+    {
+        foreach (var item in Model.Keyword)
+        {
+
+            //Html.RenderPartial("Searches/QueryComponents/KeywordPartial", item);
+        }
+        <span></span>
+    }
+}*@
+

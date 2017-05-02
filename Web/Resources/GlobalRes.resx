@@ -1,0 +1,901 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Catalog" xml:space="preserve">
+    <value>Довідка</value>
+    <comment>Views: _Layout</comment>
+  </data>
+  <data name="CompanyName" xml:space="preserve">
+    <value>Наіменування компанії</value>
+    <comment>Views: Account/Register</comment>
+  </data>
+  <data name="CompareAttribute" xml:space="preserve">
+    <value>Поле "{1}" і "{0}" не співпадають.</value>
+    <comment>Атрибут валидации</comment>
+  </data>
+  <data name="ConfirmEmail" xml:space="preserve">
+    <value>Підтвердіть E-mail</value>
+    <comment>Views: Account/Register</comment>
+  </data>
+  <data name="ConfirmPassword" xml:space="preserve">
+    <value>Підтвердіть пароль</value>
+    <comment>Views: Account/Register</comment>
+  </data>
+  <data name="Contact" xml:space="preserve">
+    <value>Контакт</value>
+    <comment>Views: _Layout</comment>
+  </data>
+  <data name="CreateNewAccount" xml:space="preserve">
+    <value>Створити новий аккаунт</value>
+    <comment>Views: Account/Register</comment>
+  </data>
+  <data name="Customer" xml:space="preserve">
+    <value>Замовнику</value>
+    <comment>Views: Home/Index</comment>
+  </data>
+  <data name="Email" xml:space="preserve">
+    <value>Е-mail</value>
+    <comment>Views: Account/Register</comment>
+  </data>
+  <data name="EmailAddressAttribute" xml:space="preserve">
+    <value>Поле "{0}" містить невірну e-mail адресу.</value>
+    <comment>Атрибут валидации</comment>
+  </data>
+  <data name="FieldMustBeDate" xml:space="preserve">
+    <value>Поле "{0}" повинно бути датою.</value>
+    <comment>Неявно используеться</comment>
+  </data>
+  <data name="FieldMustBeNumeric" xml:space="preserve">
+    <value>Поле "{0}" повинно бути числом.</value>
+    <comment>Неявно используеться</comment>
+  </data>
+  <data name="FirstName" xml:space="preserve">
+    <value>Ім'я</value>
+    <comment>Views: Account/Register</comment>
+  </data>
+  <data name="LanguageShortName" xml:space="preserve">
+    <value>UA</value>
+    <comment>Views: _Layout</comment>
+  </data>
+  <data name="LastName" xml:space="preserve">
+    <value>Прізвище</value>
+    <comment>Views: Account/Register</comment>
+  </data>
+  <data name="LegalCompany" xml:space="preserve">
+    <value>Юридична особа</value>
+    <comment>Views: Account/Register</comment>
+  </data>
+  <data name="Login" xml:space="preserve">
+    <value>Увійти</value>
+    <comment>Views: _Layout, Account/Login</comment>
+  </data>
+  <data name="MaxLengthAttribute" xml:space="preserve">
+    <value>Значення поля "{0}" не може бути більше {1}.</value>
+    <comment>Атрибут валидации</comment>
+  </data>
+  <data name="MinLengthAttribute" xml:space="preserve">
+    <value>Значення поля "{0}" не може бути менше {1}.</value>
+    <comment>Атрибут валидации</comment>
+  </data>
+  <data name="Password" xml:space="preserve">
+    <value>Пароль</value>
+    <comment>Views: Account/Register</comment>
+  </data>
+  <data name="Telephone" xml:space="preserve">
+    <value>Телефон</value>
+    <comment>Views: Account/Register</comment>
+  </data>
+  <data name="PhysicalCompany" xml:space="preserve">
+    <value>Фізична особа</value>
+    <comment>Views: Account/Register</comment>
+  </data>
+  <data name="PropertyValueInvalid" xml:space="preserve">
+    <value>Значення "{0}" неправильне для {1}.</value>
+    <comment>Неявно используеться</comment>
+  </data>
+  <data name="PropertyValueRequired" xml:space="preserve">
+    <value>Значення обов'язкове.</value>
+    <comment>Неявно используеться</comment>
+  </data>
+  <data name="Provider" xml:space="preserve">
+    <value>Постачальнику</value>
+    <comment>Views: Home/Index</comment>
+  </data>
+  <data name="Registration" xml:space="preserve">
+    <value>Реєстрація</value>
+    <comment>Views: _Layout, Account/Register</comment>
+  </data>
+  <data name="RequiredAttribute" xml:space="preserve">
+    <value>Поле "{0}" обов'язкове.</value>
+    <comment>Атрибут валидации</comment>
+  </data>
+  <data name="Search" xml:space="preserve">
+    <value>Знайти</value>
+    <comment>Views: Home/Index</comment>
+  </data>
+  <data name="SearchParameters" xml:space="preserve">
+    <value>Параметри пошуку</value>
+    <comment>Views: Home/Index</comment>
+  </data>
+  <data name="SearchTender" xml:space="preserve">
+    <value>Пошук закупівлі</value>
+    <comment>Views: Home/Index</comment>
+  </data>
+  <data name="StringLengthAttribute" xml:space="preserve">
+    <value>Поле "{0}" не може бути більше {1} символів.</value>
+    <comment>Атрибут валидации</comment>
+  </data>
+  <data name="SupportService" xml:space="preserve">
+    <value>Служба підтримки</value>
+    <comment>Views: _Layout</comment>
+  </data>
+  <data name="SupportServiceEmail" xml:space="preserve">
+    <value>support@e-capital.com</value>
+    <comment>Views: _Layout</comment>
+  </data>
+  <data name="SupportServicePhone" xml:space="preserve">
+    <value>+38(050) 1234-56-78</value>
+    <comment>Views: _Layout</comment>
+  </data>
+  <data name="Tariff" xml:space="preserve">
+    <value>Тарифи</value>
+    <comment>Views: _Layout</comment>
+  </data>
+  <data name="SiteTitle" xml:space="preserve">
+    <value>E-Capital</value>
+    <comment>Views: _Layout</comment>
+  </data>
+  <data name="TradePlatform" xml:space="preserve">
+    <value>Торгівельний майданчик</value>
+    <comment>Views: _Layout</comment>
+  </data>
+  <data name="WorkWithUs" xml:space="preserve">
+    <value>З нами вже співпрацюють</value>
+    <comment>Views: Home/Index</comment>
+  </data>
+  <data name="About" xml:space="preserve">
+    <value>Про компанію</value>
+    <comment>Views: _Layout</comment>
+  </data>
+  <data name="error_occured" xml:space="preserve">
+    <value>Виникла помилка. Будь ласка спробуйте ще раз</value>
+    <comment>Views: Account/Register</comment>
+  </data>
+  <data name="invalid_input_response" xml:space="preserve">
+    <value>Параметр відповіді є недійсним або неправильний формат.</value>
+    <comment>Views: Account/Register</comment>
+  </data>
+  <data name="invalid_input_secret" xml:space="preserve">
+    <value>Секретний параметр відсутній.</value>
+    <comment>Views: Account/Register</comment>
+  </data>
+  <data name="missing_input_response" xml:space="preserve">
+    <value>Параметр відповіді відсутній.</value>
+    <comment>Views: Account/Register</comment>
+  </data>
+  <data name="missing_input_secret" xml:space="preserve">
+    <value>Секретний параметр недійсний або має неправильний формат.</value>
+    <comment>Views: Account/Register</comment>
+  </data>
+  <data name="LanguageCode" xml:space="preserve">
+    <value>uk</value>
+    <comment>Views: _Layout</comment>
+  </data>
+  <data name="CustomerUnderLine" xml:space="preserve">
+    <value>Створити закупівлю</value>
+    <comment>Views: Home/Index</comment>
+  </data>
+  <data name="ProviderUnderLine" xml:space="preserve">
+    <value>Взяти участь у закупівлях</value>
+    <comment>Views: Home/Index</comment>
+  </data>
+  <data name="SearchUnderLine" xml:space="preserve">
+    <value>Пошук закупівлі</value>
+    <comment>Views: Home/Index</comment>
+  </data>
+  <data name="LoginUnderLine" xml:space="preserve">
+    <value>Використовуйте локальну обліковий запис, щоб увійти</value>
+    <comment>Views: Account/Login</comment>
+  </data>
+  <data name="RememberMe" xml:space="preserve">
+    <value>Запам'ятати мене</value>
+    <comment>Views: Account/Login</comment>
+  </data>
+  <data name="RegisterAsNewUser" xml:space="preserve">
+    <value>Реєстрація нового користувача</value>
+    <comment>Views: Account/Login</comment>
+  </data>
+  <data name="ForgotYourPassword" xml:space="preserve">
+    <value>Забули пароль?</value>
+    <comment>Views: Account/Login</comment>
+  </data>
+  <data name="Keyword" xml:space="preserve">
+    <value>Ключове слово</value>
+    <comment>Views: Home/Index, Tender/Index</comment>
+  </data>
+  <data name="CpvCode" xml:space="preserve">
+    <value>Класифікатор ДК 021:2015 (CPV)</value>
+    <comment>Views: Home/Index, Tender/Index</comment>
+  </data>
+  <data name="GsinCode" xml:space="preserve">
+    <value>Класифікатори ДК</value>
+    <comment>Views: Home/Index, Tender/Index</comment>
+  </data>
+  <data name="Procurer" xml:space="preserve">
+    <value>Замовник</value>
+    <comment>Views: Home/Index, Tender/Index</comment>
+  </data>
+  <data name="Region" xml:space="preserve">
+    <value>Регіон</value>
+    <comment>Views: Home/Index, Tender/Index</comment>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>Статус</value>
+    <comment>Views: Home/Index, Tender/Index</comment>
+  </data>
+  <data name="ApplicationsSubmissionDate" xml:space="preserve">
+    <value>Дата приймання пропозицій</value>
+    <comment>Views: Home/Index, Tender/Index</comment>
+  </data>
+  <data name="ClarificationDate" xml:space="preserve">
+    <value>Дата періоду уточнень</value>
+    <comment>Views: Home/Index, Tender/Index</comment>
+  </data>
+  <data name="AuctionDate" xml:space="preserve">
+    <value>Дата аукціону</value>
+    <comment>Views: Home/Index, Tender/Index</comment>
+  </data>
+  <data name="QualificationDate" xml:space="preserve">
+    <value>Дата кваліфікації</value>
+    <comment>Views: Home/Index, Tender/Index</comment>
+  </data>
+  <data name="ProcurementNumber" xml:space="preserve">
+    <value>№ закупівлі</value>
+    <comment>Views: Home/Index, Tender/Index</comment>
+  </data>
+  <data name="MiddleName" xml:space="preserve">
+    <value>По-батькові</value>
+    <comment>Views: Account/Register</comment>
+  </data>
+  <data name="CompanyType" xml:space="preserve">
+    <value>Тип компанії</value>
+    <comment>Views: Profile/Personal, Profile/EditPersonal</comment>
+  </data>
+  <data name="ChangeProfile" xml:space="preserve">
+    <value>Змінити профіль</value>
+    <comment>Views: Profile/Personal</comment>
+  </data>
+  <data name="ChangePassword" xml:space="preserve">
+    <value>Змінити пароль</value>
+    <comment>Views: Profile/Personal</comment>
+  </data>
+  <data name="NavigateToCabinet" xml:space="preserve">
+    <value>Перейти в кабінет</value>
+    <comment>Views: Profile/Personal</comment>
+  </data>
+  <data name="PersonalCabinet" xml:space="preserve">
+    <value>Персональний кабінет</value>
+    <comment>Views: Profile/Personal</comment>
+  </data>
+  <data name="PersonalData" xml:space="preserve">
+    <value>Персональні данні</value>
+    <comment>Views: Profile/Personal</comment>
+  </data>
+  <data name="EditPersonalData" xml:space="preserve">
+    <value>Редагування персональних данних</value>
+    <comment>Views: Profile/EditPersonal</comment>
+  </data>
+  <data name="Save" xml:space="preserve">
+    <value>Зберегти</value>
+    <comment>Views: Profile/EditPersonal</comment>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Відміна</value>
+    <comment>Views: Profile/EditPersonal</comment>
+  </data>
+  <data name="CurrentPassword" xml:space="preserve">
+    <value>Поточний пароль</value>
+    <comment>Views: Profile/ChangePassword</comment>
+  </data>
+  <data name="NewPassword" xml:space="preserve">
+    <value>Новий пароль</value>
+    <comment>Views: Profile/ChangePassword</comment>
+  </data>
+  <data name="ConfirmNewPassword" xml:space="preserve">
+    <value>Підтвердити новий пароль</value>
+    <comment>Views: Profile/ChangePassword</comment>
+  </data>
+  <data name="ProfileSettings" xml:space="preserve">
+    <value>Налаштування профілю</value>
+    <comment>Views: Profile/Index</comment>
+  </data>
+  <data name="Messages" xml:space="preserve">
+    <value>Повідомлення</value>
+    <comment>Views: Profile/Index</comment>
+  </data>
+  <data name="MemberTenders" xml:space="preserve">
+    <value>Список заявок на участь в торгах</value>
+    <comment>Views: Profile/Index</comment>
+  </data>
+  <data name="MyTenders" xml:space="preserve">
+    <value>Список заявок на замовлення торгів</value>
+    <comment>Views: Profile/Index</comment>
+  </data>
+  <data name="CompanyType_Individual" xml:space="preserve">
+    <value>Фізична особа</value>
+    <comment>Enum: CompanyType</comment>
+  </data>
+  <data name="CompanyType_Corporation" xml:space="preserve">
+    <value>Юридична особа</value>
+    <comment>Enum: CompanyType</comment>
+  </data>
+  <data name="CheckIfAttribute" xml:space="preserve">
+    <value>Поле "{0}" обов'язкове.</value>
+    <comment>Атрибут валидации</comment>
+  </data>
+  <data name="Title" xml:space="preserve">
+    <value>Заголовок</value>
+    <comment>View</comment>
+  </data>
+  <data name="Confirmation" xml:space="preserve">
+    <value>Підтвердження </value>
+  </data>
+  <data name="ConfirmationEmailSent" xml:space="preserve">
+    <value>Електронний лист з підтвердженням реєстрації відправлений на скриньку {0}</value>
+  </data>
+  <data name="Congratulation" xml:space="preserve">
+    <value>Вітаємо!</value>
+  </data>
+  <data name="Error" xml:space="preserve">
+    <value>Помилка</value>
+  </data>
+  <data name="ErrorOccured" xml:space="preserve">
+    <value>Підчас обробки вашого запиту виникла помилка.</value>
+  </data>
+  <data name="RegistrationCompleted" xml:space="preserve">
+    <value>Реєстрація завершена</value>
+  </data>
+  <data name="RegistrationError" xml:space="preserve">
+    <value>Не вдалось завершити реєстрацію</value>
+  </data>
+  <data name="TrayAgainLater" xml:space="preserve">
+    <value>Спробуйте ще раз пізніше, або зверніться с службу підтримки</value>
+  </data>
+  <data name="ClickNextButton" xml:space="preserve">
+    <value>натисніть наступну кнопку</value>
+  </data>
+  <data name="Confirm" xml:space="preserve">
+    <value>Підтвердити</value>
+  </data>
+  <data name="ConfirmationEmailSendError" xml:space="preserve">
+    <value>Не вдалось відправити електронний лист з підтвердженням реєстрації.</value>
+  </data>
+  <data name="ConfirmationEmailSentDescr" xml:space="preserve">
+    <value>Перевірте свою поштову скриньку, та слідуйте інструкціям в листі. Якщо ви не можете знайти лист з підтвердженням - можливо він попав в папку "спам".</value>
+  </data>
+  <data name="EmailConfirmation" xml:space="preserve">
+    <value>Підтвердження електронної пошти</value>
+  </data>
+  <data name="FollowThisLink" xml:space="preserve">
+    <value>перейдіть за цим посиланням</value>
+  </data>
+  <data name="InvalidloginAttempt" xml:space="preserve">
+    <value>Невдала спроба авторизації.</value>
+  </data>
+  <data name="ToConfirmEmail" xml:space="preserve">
+    <value>Щоб підтвердити свою електронну пошту</value>
+  </data>
+  <data name="YouCanChangeDataIn" xml:space="preserve">
+    <value>Ви можете змінити будь-які дані на сторінці "{0}".</value>
+  </data>
+  <data name="ProcedurePeriod" xml:space="preserve">
+    <value>Планова дата початку процедури</value>
+    <comment>Views: Home/Index, Tender/Index</comment>
+  </data>
+  <data name="ProcedureType" xml:space="preserve">
+    <value>Тип процедури</value>
+  </data>
+  <data name="PlanNumber" xml:space="preserve">
+    <value>Номер плану</value>
+  </data>
+  <data name="CreateDraftTender" xml:space="preserve">
+    <value>Створити тендер-чернетку</value>
+  </data>
+  <data name="Next" xml:space="preserve">
+    <value>Наступний</value>
+  </data>
+  <data name="EditDraftTender" xml:space="preserve">
+    <value>Редагувати тендер-чернетку</value>
+  </data>
+  <data name="Forward" xml:space="preserve">
+    <value>Вперед</value>
+  </data>
+  <data name="Backward" xml:space="preserve">
+    <value>Назад</value>
+  </data>
+  <data name="ProcurementObjects" xml:space="preserve">
+    <value>Об'єкти закупівлі</value>
+  </data>
+  <data name="AddLot" xml:space="preserve">
+    <value>Додати лот</value>
+  </data>
+  <data name="AddItem" xml:space="preserve">
+    <value>Додати закупку</value>
+  </data>
+  <data name="AddFeature" xml:space="preserve">
+    <value>Додати критерій</value>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>Наіменування</value>
+  </data>
+  <data name="Description" xml:space="preserve">
+    <value>Опис</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>Редагувати</value>
+  </data>
+  <data name="Lot" xml:space="preserve">
+    <value>Лот</value>
+  </data>
+  <data name="Features" xml:space="preserve">
+    <value>Нецінові (якісні) критерії оцінки</value>
+  </data>
+  <data name="Type" xml:space="preserve">
+    <value>Тип</value>
+  </data>
+  <data name="Object" xml:space="preserve">
+    <value>Об'єкт</value>
+  </data>
+  <data name="Currency" xml:space="preserve">
+    <value>Валюта</value>
+  </data>
+  <data name="StartDate" xml:space="preserve">
+    <value>Початок періоду</value>
+  </data>
+  <data name="EndDate" xml:space="preserve">
+    <value>Закінчення періоду</value>
+  </data>
+  <data name="Amount" xml:space="preserve">
+    <value>Ціна</value>
+  </data>
+  <data name="VATIncluded" xml:space="preserve">
+    <value>Включаючи ПДВ</value>
+  </data>
+  <data name="Procurement" xml:space="preserve">
+    <value>Закупка</value>
+  </data>
+  <data name="Guarantee" xml:space="preserve">
+    <value>Гарантія</value>
+  </data>
+  <data name="Periods" xml:space="preserve">
+    <value>Періоди</value>
+  </data>
+  <data name="Enquery" xml:space="preserve">
+    <value>Прийняття питань</value>
+  </data>
+  <data name="Proposition" xml:space="preserve">
+    <value>Пропозиції</value>
+  </data>
+  <data name="MinimalStep" xml:space="preserve">
+    <value>Шаг зниження ставки</value>
+  </data>
+  <data name="TitleUk" xml:space="preserve">
+    <value>Заголовок укр.</value>
+  </data>
+  <data name="TitleEn" xml:space="preserve">
+    <value>Заголовок англ.</value>
+  </data>
+  <data name="Auction" xml:space="preserve">
+    <value>Аукціон</value>
+  </data>
+  <data name="Unit" xml:space="preserve">
+    <value>Одиниця виміру</value>
+  </data>
+  <data name="Code" xml:space="preserve">
+    <value>Код</value>
+  </data>
+  <data name="Quantity" xml:space="preserve">
+    <value>Кількість</value>
+  </data>
+  <data name="Delivery" xml:space="preserve">
+    <value>Доставка</value>
+  </data>
+  <data name="Address" xml:space="preserve">
+    <value>Адреса</value>
+  </data>
+  <data name="Country" xml:space="preserve">
+    <value>Країна</value>
+  </data>
+  <data name="Locality" xml:space="preserve">
+    <value>Місце</value>
+  </data>
+  <data name="PostalCode" xml:space="preserve">
+    <value>Поштовий код</value>
+  </data>
+  <data name="Street" xml:space="preserve">
+    <value>Вулиця</value>
+  </data>
+  <data name="DeliveryLocation" xml:space="preserve">
+    <value>Місце доставки</value>
+  </data>
+  <data name="Elevation" xml:space="preserve">
+    <value>Висота</value>
+  </data>
+  <data name="Latitude" xml:space="preserve">
+    <value>Ширина</value>
+  </data>
+  <data name="Longitude" xml:space="preserve">
+    <value>Довжина</value>
+  </data>
+  <data name="BindLot" xml:space="preserve">
+    <value>Приєднати до лоту</value>
+  </data>
+  <data name="Classification" xml:space="preserve">
+    <value>Класифікація</value>
+  </data>
+  <data name="Id" xml:space="preserve">
+    <value>Ідентифікаційний код</value>
+  </data>
+  <data name="AdditionalClassification" xml:space="preserve">
+    <value>Додаткова класифікація</value>
+  </data>
+  <data name="Scheme" xml:space="preserve">
+    <value>Схема</value>
+  </data>
+  <data name="RelatedItem" xml:space="preserve">
+    <value>Об'єкт</value>
+  </data>
+  <data name="Value" xml:space="preserve">
+    <value>Значення</value>
+  </data>
+  <data name="AddFeatureValue" xml:space="preserve">
+    <value>Додати значення особливої вимоги</value>
+  </data>
+  <data name="NavigateToItems" xml:space="preserve">
+    <value>Перейти в закупівлі</value>
+  </data>
+  <data name="EditFeature" xml:space="preserve">
+    <value>Редагувати особливу вимогу</value>
+  </data>
+  <data name="EditItem" xml:space="preserve">
+    <value>Редагувати об'єкт закупівлі</value>
+  </data>
+  <data name="FeatureValues" xml:space="preserve">
+    <value>Опції</value>
+  </data>
+  <data name="EditTender" xml:space="preserve">
+    <value>Редагувати тендер</value>
+  </data>
+  <data name="EditFeatureValue" xml:space="preserve">
+    <value>Редагувати значення особливої вимоги</value>
+  </data>
+  <data name="AddQuestion" xml:space="preserve">
+    <value>Додати запитання</value>
+  </data>
+  <data name="AddAnswer" xml:space="preserve">
+    <value>Додати відповідь</value>
+  </data>
+  <data name="Date" xml:space="preserve">
+    <value>Дата</value>
+  </data>
+  <data name="Question" xml:space="preserve">
+    <value>Питання</value>
+  </data>
+  <data name="Answer" xml:space="preserve">
+    <value>Відповідь</value>
+  </data>
+  <data name="CancelTender" xml:space="preserve">
+    <value>Відміна тендеру</value>
+  </data>
+  <data name="Yes" xml:space="preserve">
+    <value>Так</value>
+  </data>
+  <data name="No" xml:space="preserve">
+    <value>Ні</value>
+  </data>
+  <data name="CancelTenderDescription" xml:space="preserve">
+    <value>Опис причини відміни закупівлі</value>
+  </data>
+  <data name="CancelTenderFileDescription" xml:space="preserve">
+    <value>Файл с описом причини відміни тендеру</value>
+  </data>
+  <data name="EditLot" xml:space="preserve">
+    <value>Редагувати лот</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>Видалити</value>
+  </data>
+  <data name="DraftTender" xml:space="preserve">
+    <value>Тендер-чернетка</value>
+  </data>
+  <data name="NavigateToTender" xml:space="preserve">
+    <value>Перейти до тендеру</value>
+  </data>
+  <data name="Item" xml:space="preserve">
+    <value>Предмет закупівлі</value>
+  </data>
+  <data name="DocumentType" xml:space="preserve">
+    <value>Тип документу</value>
+  </data>
+  <data name="Format" xml:space="preserve">
+    <value>Формат</value>
+  </data>
+  <data name="AddDocument" xml:space="preserve">
+    <value>Додати документ</value>
+  </data>
+  <data name="Document" xml:space="preserve">
+    <value>Документ</value>
+  </data>
+  <data name="Language" xml:space="preserve">
+    <value>Мова</value>
+  </data>
+  <data name="EditDocument" xml:space="preserve">
+    <value>Редагування документу</value>
+  </data>
+  <data name="Documents" xml:space="preserve">
+    <value>Документи</value>
+  </data>
+  <data name="Award" xml:space="preserve">
+    <value>Визначення</value>
+  </data>
+  <data name="Tender" xml:space="preserve">
+    <value>Тендер</value>
+  </data>
+  <data name="TenderDetails" xml:space="preserve">
+    <value>Деталі тендеру</value>
+  </data>
+  <data name="Ukraine" xml:space="preserve">
+    <value>Україна</value>
+  </data>
+  <data name="MaximumNonPriceCriteriaMessage" xml:space="preserve">
+    <value>Загальна вага всіх нецінових критеріїв однієї пропозиції не може перевищувати 30%.</value>
+  </data>
+  <data name="Claim" xml:space="preserve">
+    <value>Вимога</value>
+  </data>
+  <data name="Complaint" xml:space="preserve">
+    <value>Скарга</value>
+  </data>
+  <data name="AddClaimComplaint" xml:space="preserve">
+    <value>Додати вимогу/скаргу</value>
+  </data>
+  <data name="Complaints" xml:space="preserve">
+    <value>Скарги</value>
+  </data>
+  <data name="EditClaimComplaint" xml:space="preserve">
+    <value>Редагувати вимогу/скаргу</value>
+  </data>
+  <data name="Absent" xml:space="preserve">
+    <value>Відсутній</value>
+  </data>
+  <data name="Resolution" xml:space="preserve">
+    <value>Відповідь</value>
+  </data>
+  <data name="ResolutionType" xml:space="preserve">
+    <value>Тип відповіді</value>
+  </data>
+  <data name="Publish" xml:space="preserve">
+    <value>Опублікувати</value>
+  </data>
+  <data name="VATIncludeTrue" xml:space="preserve">
+    <value>З ПДВ</value>
+  </data>
+  <data name="VATIncludeFalse" xml:space="preserve">
+    <value>Без ПДВ</value>
+  </data>
+  <data name="FeatureValueName" xml:space="preserve">
+    <value>Назва опції</value>
+  </data>
+  <data name="FeatureValueValue" xml:space="preserve">
+    <value>Вага опції, %</value>
+  </data>
+  <data name="FeatureValueTotal" xml:space="preserve">
+    <value>Вага опцій критерію, %</value>
+  </data>
+  <data name="ValueAmount" xml:space="preserve">
+    <value>Очікувана вартість закупівлі</value>
+  </data>
+  <data name="SelectTenderType" xml:space="preserve">
+    <value>Оберіть тип оголошення</value>
+  </data>
+  <data name="Create" xml:space="preserve">
+    <value>Створити</value>
+  </data>
+  <data name="BelowThreshold" xml:space="preserve">
+    <value>Допорогові закупівлі</value>
+  </data>
+  <data name="AboveThresholdUA" xml:space="preserve">
+    <value>Відкриті торги</value>
+  </data>
+  <data name="AboveThresholdEN" xml:space="preserve">
+    <value>Відкриті торги з публікацією англ. мовою</value>
+  </data>
+  <data name="DescriptionEn" xml:space="preserve">
+    <value>Опис англ.</value>
+  </data>
+  <data name="FeatureValueNameEn" xml:space="preserve">
+    <value>Назва опції англ.</value>
+  </data>
+  <data name="FeatureValueDescription" xml:space="preserve">
+    <value>Опис опції</value>
+  </data>
+  <data name="FeatureValueDescriptionEn" xml:space="preserve">
+    <value>Опис опції англ.</value>
+  </data>
+  <data name="TenderLimited" xml:space="preserve">
+    <value>Переговорна процедура</value>
+  </data>
+  <data name="TenderLimitedQuick" xml:space="preserve">
+    <value>Переговорна процедура скорочена</value>
+  </data>
+  <data name="TenderDefense" xml:space="preserve">
+    <value>Переговорна процедура для потреб оборони</value>
+  </data>
+  <data name="Reason" xml:space="preserve">
+    <value>Підстава</value>
+  </data>
+  <data name="Reasoning" xml:space="preserve">
+    <value>Обгрунтування</value>
+  </data>
+  <data name="TenderLimitedReporting" xml:space="preserve">
+    <value>Звіт про укладений договір</value>
+  </data>
+  <data name="Site" xml:space="preserve">
+    <value>Сайт</value>
+  </data>
+  <data name="Fax" xml:space="preserve">
+    <value>Факс</value>
+  </data>
+  <data name="AddContact" xml:space="preserve">
+    <value>Додати контакт</value>
+  </data>
+  <data name="NameEn" xml:space="preserve">
+    <value>Наіменування англ.</value>
+  </data>
+  <data name="Identifier" xml:space="preserve">
+    <value>Ідентифікатор</value>
+  </data>
+  <data name="Contacts" xml:space="preserve">
+    <value>Контакти</value>
+  </data>
+  <data name="Percentage" xml:space="preserve">
+    <value>Відсоток %</value>
+  </data>
+  <data name="AwardCriteria" xml:space="preserve">
+    <value>Критерій вибору переможця</value>
+  </data>
+  <data name="MostEconomicallyBetterOffer" xml:space="preserve">
+    <value>Найбільш економічно вигідна пропозиція</value>
+  </data>
+  <data name="Price" xml:space="preserve">
+    <value>Ціна</value>
+  </data>
+  <data name="LegalName" xml:space="preserve">
+    <value>Наіменування орзанізації</value>
+  </data>
+  <data name="LegalNameEn" xml:space="preserve">
+    <value>Наіменування орзанізації англ.</value>
+  </data>
+  <data name="Kind" xml:space="preserve">
+    <value>Тип</value>
+  </data>
+  <data name="Phone" xml:space="preserve">
+    <value>Телефон</value>
+  </data>
+</root>

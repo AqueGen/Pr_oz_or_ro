@@ -1,0 +1,426 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Catalog" xml:space="preserve">
+    <value>Справка</value>
+  </data>
+  <data name="Contact" xml:space="preserve">
+    <value>Контакт</value>
+  </data>
+  <data name="LanguageShortName" xml:space="preserve">
+    <value>RU</value>
+  </data>
+  <data name="Login" xml:space="preserve">
+    <value>Войти</value>
+  </data>
+  <data name="Registration" xml:space="preserve">
+    <value>Регистрация</value>
+  </data>
+  <data name="SearchTender" xml:space="preserve">
+    <value>Поиск закупки</value>
+  </data>
+  <data name="SupportService" xml:space="preserve">
+    <value>Служба поддержки</value>
+  </data>
+  <data name="SupportServiceEmail" xml:space="preserve">
+    <value>support@e-capital.com</value>
+  </data>
+  <data name="SupportServicePhone" xml:space="preserve">
+    <value>+38 (050) 1234-56-78</value>
+  </data>
+  <data name="Tariff" xml:space="preserve">
+    <value>Тарифы</value>
+  </data>
+  <data name="SiteTitle" xml:space="preserve">
+    <value>E-Capital</value>
+  </data>
+  <data name="TradePlatform" xml:space="preserve">
+    <value>Торговая площадка</value>
+  </data>
+  <data name="WorkWithUs" xml:space="preserve">
+    <value>С нами уже сотрудничают</value>
+  </data>
+  <data name="CompanyName" xml:space="preserve">
+    <value>Наименование компании</value>
+  </data>
+  <data name="ConfirmEmail" xml:space="preserve">
+    <value>Подтвердите E-mail</value>
+  </data>
+  <data name="ConfirmPassword" xml:space="preserve">
+    <value>Подтвердите пароль</value>
+  </data>
+  <data name="CreateNewAccount" xml:space="preserve">
+    <value>Создать новый аккаунт</value>
+  </data>
+  <data name="Customer" xml:space="preserve">
+    <value>Заказчику</value>
+  </data>
+  <data name="Email" xml:space="preserve">
+    <value>Е-mail</value>
+  </data>
+  <data name="FieldMustBeDate" xml:space="preserve">
+    <value>Поле "{0}" должно быть датой.</value>
+  </data>
+  <data name="FieldMustBeNumeric" xml:space="preserve">
+    <value>Поле "{0}" должно быть числом.</value>
+  </data>
+  <data name="FirstName" xml:space="preserve">
+    <value>Имя</value>
+  </data>
+  <data name="LastName" xml:space="preserve">
+    <value>Фамилия</value>
+  </data>
+  <data name="LegalCompany" xml:space="preserve">
+    <value>Юридическое лицо</value>
+  </data>
+  <data name="Password" xml:space="preserve">
+    <value>Пароль</value>
+  </data>
+  <data name="Telephone" xml:space="preserve">
+    <value>Телефон</value>
+  </data>
+  <data name="PhysicalCompany" xml:space="preserve">
+    <value>Физическое лицо</value>
+  </data>
+  <data name="PropertyValueInvalid" xml:space="preserve">
+    <value>Значение "{0}" неправильное для {1}.</value>
+  </data>
+  <data name="PropertyValueRequired" xml:space="preserve">
+    <value>Значение обязательна.</value>
+  </data>
+  <data name="Provider" xml:space="preserve">
+    <value>Поставщику</value>
+  </data>
+  <data name="RequiredAttribute" xml:space="preserve">
+    <value>Поле "{0}" обязательно.</value>
+  </data>
+  <data name="Search" xml:space="preserve">
+    <value>Найти</value>
+  </data>
+  <data name="SearchParameters" xml:space="preserve">
+    <value>Параметры поиска</value>
+  </data>
+  <data name="EmailAddressAttribute" xml:space="preserve">
+    <value>Поле "{0}" содержит неверный e-mail адрес.</value>
+  </data>
+  <data name="CompareAttribute" xml:space="preserve">
+    <value>Поля "{1}" и "{0}" не совпадают.</value>
+  </data>
+  <data name="MaxLengthAttribute" xml:space="preserve">
+    <value>Значение поля "{0}" не может быть больше {1}.</value>
+  </data>
+  <data name="MinLengthAttribute" xml:space="preserve">
+    <value>Значение поля "{0}" не может быть меньше {1}.</value>
+  </data>
+  <data name="StringLengthAttribute" xml:space="preserve">
+    <value>Поле "{0}" не может быть больше {1} символов.</value>
+  </data>
+  <data name="About" xml:space="preserve">
+    <value>О компании</value>
+  </data>
+  <data name="invalid_input_response" xml:space="preserve">
+    <value>Параметр ответа является недействительным или неправильный формат.</value>
+  </data>
+  <data name="invalid_input_secret" xml:space="preserve">
+    <value>Секретный параметр отсутствует.</value>
+  </data>
+  <data name="missing_input_response" xml:space="preserve">
+    <value>Параметр ответа отсутствует.</value>
+  </data>
+  <data name="missing_input_secret" xml:space="preserve">
+    <value>Секретный параметр недействителен или имеет неправильный формат.</value>
+  </data>
+  <data name="error_occured" xml:space="preserve">
+    <value>Ошибка. Пожалуйста попробуйте еще раз</value>
+  </data>
+  <data name="LanguageCode" xml:space="preserve">
+    <value>ru</value>
+  </data>
+  <data name="SearchUnderLine" xml:space="preserve">
+    <value>Поиск закупки</value>
+  </data>
+  <data name="CustomerUnderLine" xml:space="preserve">
+    <value>Создать закупку</value>
+  </data>
+  <data name="ProviderUnderLine" xml:space="preserve">
+    <value>Взять участие в закупках</value>
+  </data>
+  <data name="LoginUnderLine" xml:space="preserve">
+    <value>Используйте локальную учетную запись, чтобы войти</value>
+  </data>
+  <data name="RememberMe" xml:space="preserve">
+    <value>Запомнить меня</value>
+  </data>
+  <data name="RegisterAsNewUser" xml:space="preserve">
+    <value>Регистрация нового пользователя</value>
+  </data>
+  <data name="ForgotYourPassword" xml:space="preserve">
+    <value>Забыли пароль?</value>
+  </data>
+  <data name="Keyword" xml:space="preserve">
+    <value>Ключевое слово</value>
+  </data>
+  <data name="Procurer" xml:space="preserve">
+    <value>Заказчик</value>
+  </data>
+  <data name="Region" xml:space="preserve">
+    <value>Регион</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>Статус</value>
+  </data>
+  <data name="ApplicationsSubmissionDate" xml:space="preserve">
+    <value>Дата принятия предложений</value>
+  </data>
+  <data name="ClarificationDate" xml:space="preserve">
+    <value>Дата периода уточнений</value>
+  </data>
+  <data name="AuctionDate" xml:space="preserve">
+    <value>Дата аукциона</value>
+  </data>
+  <data name="QualificationDate" xml:space="preserve">
+    <value>Дата квалификации</value>
+  </data>
+  <data name="ProcurementNumber" xml:space="preserve">
+    <value>№ закупки</value>
+  </data>
+  <data name="MiddleName" xml:space="preserve">
+    <value>Отчество</value>
+  </data>
+  <data name="CompanyType" xml:space="preserve">
+    <value>Тип компании</value>
+  </data>
+  <data name="ChangeProfile" xml:space="preserve">
+    <value>Изменить профиль</value>
+  </data>
+  <data name="ChangePassword" xml:space="preserve">
+    <value>Изменить пароль</value>
+  </data>
+  <data name="NavigateToCabinet" xml:space="preserve">
+    <value>Перейти в кабинет</value>
+  </data>
+  <data name="PersonalCabinet" xml:space="preserve">
+    <value>Персональный кабинет</value>
+  </data>
+  <data name="PersonalData" xml:space="preserve">
+    <value>Персональный данные</value>
+  </data>
+  <data name="EditPersonalData" xml:space="preserve">
+    <value>Редактирование персональных данных</value>
+  </data>
+  <data name="Save" xml:space="preserve">
+    <value>Сохранить</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Отмена</value>
+  </data>
+  <data name="CurrentPassword" xml:space="preserve">
+    <value>Текущий пароль</value>
+  </data>
+  <data name="NewPassword" xml:space="preserve">
+    <value>Новый пароль</value>
+  </data>
+  <data name="ConfirmNewPassword" xml:space="preserve">
+    <value>Подтвердить новый пароль</value>
+  </data>
+  <data name="ProfileSettings" xml:space="preserve">
+    <value>Настройки профиля</value>
+  </data>
+  <data name="Messages" xml:space="preserve">
+    <value>Сообщения</value>
+  </data>
+  <data name="MemberTenders" xml:space="preserve">
+    <value>Список заявок на участие в торгах</value>
+  </data>
+  <data name="MyTenders" xml:space="preserve">
+    <value>Список заявок на заказ торгов</value>
+  </data>
+  <data name="CompanyType_Individual" xml:space="preserve">
+    <value>Физическое лицо</value>
+  </data>
+  <data name="CompanyType_Corporation" xml:space="preserve">
+    <value>Юридическое лицо</value>
+  </data>
+  <data name="CheckIfAttribute" xml:space="preserve">
+    <value>Поле "{0}" обязательно.</value>
+  </data>
+  <data name="Title" xml:space="preserve">
+    <value>Заглавие</value>
+  </data>
+  <data name="ProcedurePeriod" xml:space="preserve">
+    <value>Планированная дата начала процедуры</value>
+  </data>
+  <data name="ProcedureType" xml:space="preserve">
+    <value>Тип процедуры</value>
+  </data>
+  <data name="PlanNumber" xml:space="preserve">
+    <value>Номер плана</value>
+  </data>
+  <data name="CreateDraftTender" xml:space="preserve">
+    <value>Создать тендер черновик</value>
+  </data>
+  <data name="Next" xml:space="preserve">
+    <value>Следующий</value>
+  </data>
+  <data name="EditDraftTender" xml:space="preserve">
+    <value>Редактировать тендер-черновик</value>
+  </data>
+  <data name="Forward" xml:space="preserve">
+    <value>Вперёд</value>
+  </data>
+  <data name="Backward" xml:space="preserve">
+    <value>Назад</value>
+  </data>
+  <data name="ProcurementObjects" xml:space="preserve">
+    <value>Объекты закупки</value>
+  </data>
+  <data name="AddLot" xml:space="preserve">
+    <value>Добавить лот</value>
+  </data>
+  <data name="AddItem" xml:space="preserve">
+    <value>Добавить закупку</value>
+  </data>
+  <data name="AddFeature" xml:space="preserve">
+    <value>Добавить критерий</value>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>Название</value>
+  </data>
+  <data name="Description" xml:space="preserve">
+    <value>Описание</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>Редактировать</value>
+  </data>
+  <data name="Lot" xml:space="preserve">
+    <value>Лот</value>
+  </data>
+  <data name="Type" xml:space="preserve">
+    <value>Тип</value>
+  </data>
+  <data name="Object" xml:space="preserve">
+    <value>Обьект</value>
+  </data>
+  <data name="Currency" xml:space="preserve">
+    <value>Валюта</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>Удалить</value>
+  </data>
+</root>

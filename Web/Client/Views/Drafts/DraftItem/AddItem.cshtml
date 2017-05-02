@@ -1,0 +1,336 @@
+@using Kapitalist.Web.Resources
+@model Kapitalist.Web.Client.ViewModels.Drafts.DraftItemViewModel
+
+<div class="container header-and-body-content">
+<h2>@GlobalRes.AddItem.</h2>
+
+@using (Html.BeginForm("AddItem", "DraftItem", FormMethod.Post, new {@class = "form-horizontal", role = "form"}))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true, "", new {@class = "text-danger"})
+
+    @Html.HiddenFor(m => m.StringId)
+    @Html.HiddenFor(m => m.LotStringId)
+    @Html.HiddenFor(m => m.ProcurementMethodType)
+
+    <div class="form-group">
+        <label class="col-md-3 control-label">@GlobalRes.Description</label>
+        <div class="col-md-9">
+            @Html.TextBoxFor(m => m.Description, null, new {@class = "form-control"})
+            @Html.ValidationMessageFor(m => m.Description, "", new {@class = "text-danger"})
+        </div>
+    </div>
+
+    <div>
+        <div class="col-md-3 control-label">
+            <h3>@GlobalRes.Classification CPV</h3>
+        </div>
+        <div class="clearfix"></div>
+        <div class="form-group">
+            <label class="col-md-3 control-label">@GlobalRes.Id</label>
+            <div class="col-md-9">
+                <div class="panel-group" id="accordionCPV">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                                <a data-toggle="collapse" data-parent="#accordionCPV" href="#collapseCPV">Список</a>
+                            </h4>
+                        </div>
+                        <div id="collapseCPV" class="panel-collapse collapse">
+                            <div>
+                                <span>@GlobalRes.Search</span>
+                                <input id="@(Html.IdFor(m => m.Classification) + "_search")"/>
+                            </div>
+                            <div class="panel-body">
+                                <div id="@Html.IdFor(m => m.Classification)"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                @Html.HiddenFor(m => m.ClassificationSelectedId)
+
+                @Html.ValidationMessageFor(m => m.Classification.Id, "", new {@class = "text-danger"})
+            </div>
+        </div>
+    </div>
+
+    <div>
+        <div class="col-md-3 control-label">
+            <h3>@GlobalRes.Classification ДКПП</h3>
+        </div>
+        <div class="clearfix"></div>
+        <div class="form-group">
+            <label class="col-md-3 control-label">@GlobalRes.Id</label>
+            <div class="col-md-9">
+                <div class="panel-group" id="accordionGSIN">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                                <a data-toggle="collapse" data-parent="#accordionGSIN" href="#collapseGSIN">Список</a>
+                            </h4>
+                        </div>
+                        <div id="collapseGSIN" class="panel-collapse collapse">
+                            <div>
+                                <span>@GlobalRes.Search</span>
+                                <input id="@(Html.IdFor(m => m.AdditionalClassifications) + "_search")" />
+                            </div>
+                            <div class="panel-body">
+                                <div id="@Html.IdFor(m => m.AdditionalClassifications)"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                @Html.HiddenFor(m => m.AdditionalClassificationsSelectedId)
+
+                @Html.ValidationMessageFor(m => m.AdditionalClassifications, "", new {@class = "text-danger"})
+            </div>
+        </div>
+    </div>
+
+    <div>
+        <div class="col-md-3 control-label">
+            <h3>@GlobalRes.Unit</h3>
+        </div>
+        <div class="clearfix"></div>
+        <div class="form-group">
+            <label class="col-md-3 control-label">@GlobalRes.Code</label>
+            <div class="col-md-9">
+                @Html.TextBoxFor(m => m.Unit.Code, null, new {@class = "form-control"})
+                @Html.ValidationMessageFor(m => m.Unit.Code, "", new {@class = "text-danger"})
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-md-3 control-label">@GlobalRes.Name</label>
+            <div class="col-md-9">
+                @Html.TextBoxFor(m => m.Unit.Name, null, new {@class = "form-control"})
+                @Html.ValidationMessageFor(m => m.Unit.Name, "", new {@class = "text-danger"})
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="col-md-3 control-label">@GlobalRes.Quantity</label>
+        <div class="col-md-9">
+            @Html.TextBoxFor(m => m.Quantity, null, new {@class = "form-control"})
+            @Html.ValidationMessageFor(m => m.Quantity, "", new {@class = "text-danger"})
+        </div>
+    </div>
+
+
+    <div>
+        <div class="col-md-3 control-label">
+            <h3>@GlobalRes.Periods</h3>
+        </div>
+        <div class="clearfix"></div>
+        <div class="form-group">
+            <label class="col-md-3 control-label">@GlobalRes.Delivery</label>
+            <div class="col-md-9">
+                <div> @Html.EditorFor(m => m.DeliveryDate.StartDate) - @Html.EditorFor(m => m.DeliveryDate.EndDate)</div>
+                <div>
+                    @Html.ValidationMessageFor(m => m.DeliveryDate.StartDate, "", new {@class = "text-danger"})
+                    @Html.ValidationMessageFor(m => m.DeliveryDate.EndDate, "", new {@class = "text-danger"})
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div>
+        <div class="col-md-3 control-label">
+            <h3>@GlobalRes.Address</h3>
+        </div>
+        <div class="clearfix"></div>
+        <div class="form-group">
+            <label class="col-md-3 control-label">@GlobalRes.Country</label>
+            <div class="col-md-9">
+                @Html.TextBoxFor(m => m.DeliveryAddress.Country, null, new {@class = "form-control"})
+                @Html.ValidationMessageFor(m => m.DeliveryAddress.Country, "", new {@class = "text-danger"})
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-md-3 control-label">@GlobalRes.Region</label>
+            <div class="col-md-9">
+                @Html.TextBoxFor(m => m.DeliveryAddress.Region, null, new {@class = "form-control"})
+                @Html.ValidationMessageFor(m => m.DeliveryAddress.Region, "", new {@class = "text-danger"})
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-md-3 control-label">@GlobalRes.Locality</label>
+            <div class="col-md-9">
+                @Html.TextBoxFor(m => m.DeliveryAddress.Locality, null, new {@class = "form-control"})
+                @Html.ValidationMessageFor(m => m.DeliveryAddress.Locality, "", new {@class = "text-danger"})
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-md-3 control-label">@GlobalRes.PostalCode</label>
+            <div class="col-md-9">
+                @Html.TextBoxFor(m => m.DeliveryAddress.PostalCode, null, new {@class = "form-control"})
+                @Html.ValidationMessageFor(m => m.DeliveryAddress.PostalCode, "", new {@class = "text-danger"})
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-md-3 control-label">@GlobalRes.Street</label>
+            <div class="col-md-9">
+                @Html.TextBoxFor(m => m.DeliveryAddress.Street, null, new {@class = "form-control"})
+                @Html.ValidationMessageFor(m => m.DeliveryAddress.Street, "", new {@class = "text-danger"})
+            </div>
+        </div>
+    </div>
+
+    <div>
+        <div class="col-md-3 control-label">
+            <h3>@GlobalRes.DeliveryLocation</h3>
+        </div>
+        <div class="clearfix"></div>
+        <div class="form-group">
+            <label class="col-md-3 control-label">@GlobalRes.Longitude</label>
+            <div class="col-md-9">
+                @Html.TextBoxFor(m => m.DeliveryLocation.Longitude, null, new {@class = "form-control"})
+                @Html.ValidationMessageFor(m => m.DeliveryLocation.Longitude, "", new {@class = "text-danger"})
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-md-3 control-label">@GlobalRes.Latitude</label>
+            <div class="col-md-9">
+                @Html.TextBoxFor(m => m.DeliveryLocation.Latitude, null, new {@class = "form-control"})
+                @Html.ValidationMessageFor(m => m.DeliveryLocation.Latitude, "", new {@class = "text-danger"})
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-md-3 control-label">@GlobalRes.Elevation</label>
+            <div class="col-md-9">
+                @Html.TextBoxFor(m => m.DeliveryLocation.Elevation, null, new {@class = "form-control"})
+                @Html.ValidationMessageFor(m => m.DeliveryLocation.Elevation, "", new {@class = "text-danger"})
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-offset-3 col-md-9">
+        <a href="@Url.Action("Info", "DraftTenderInfo", new {tenderGuid = Model.TenderGuid})" class="btn btn-default col-xs-12 col-md-3 square-background-yellow btn-lg">@GlobalRes.Cancel</a>
+        <input type="submit" value="@GlobalRes.Save" class="btn btn-default col-xs-12 col-md-3 square-background-blue btn-lg"/>
+    </div>
+}
+
+
+
+</div>
+
+@section scripts
+{
+    @Styles.Render("~/Content/jstree")
+
+    @Scripts.Render("~/bundles/jstree")
+
+    <script>
+        //CPV
+        $.getJSON({
+                url: '@Url.Action("GetCPV", "DraftTenderInfo")',
+                dataType: "json",
+                success: function(data) {
+                    $('#@Html.IdFor(m => m.Classification)')
+                        .on("loaded.jstree",
+                            function(e, data) {
+                                data.instance.select_node("@Model.Classification.Id");
+                            })
+                        .jstree({
+                            'core': {
+                                'data': data
+                            },
+                            'plugins': ["search"]
+                        });
+                    var to = false;
+                    var searchComponentId = '#@Html.IdFor(m => m.Classification)' + '_search';
+                    $(searchComponentId)
+                        .keyup(function() {
+                            if (to) {
+                                clearTimeout(to);
+                            }
+                            to = setTimeout(function() {
+                                    var v = $(searchComponentId).val();
+                                    if (v.length >= 5) {
+                                        $('#@Html.IdFor(m => m.Classification)').jstree(true).search(v);
+                                    }
+
+                                },
+                                250);
+                        });
+                }
+            }
+        );
+
+        $('#@Html.IdFor(m => m.Classification)')
+            .on("changed.jstree",
+                function(e, data) {
+                    $("#@Html.IdFor(m => m.ClassificationSelectedId)")
+                        .val(data.instance.get_node(data.selected[0]).text);
+                });
+
+
+        //GSIN
+        $.getJSON({
+                url: '@Url.Action("GetCPV", "DraftTenderInfo")',
+                dataType: "json",
+                success: function(data) {
+                    $('#@Html.IdFor(m => m.AdditionalClassifications)')
+                        .on("loaded.jstree",
+                            function(e, data) {
+                                var list = "@string.Join(",", Model.AdditionalClassifications.Select(m => m.Id))"
+                                    .split(",");
+                                for (var i = 0; i < list.length; i++) {
+                                    data.instance.select_node(list[i]);
+                                }
+                            })
+                        .jstree({
+                            'core': {
+                                'data': data
+                            },
+                            'checkbox': {
+                                three_state: false,
+                                cascade: 'undetermined',
+                                tie_selection: 'false'
+                            },
+                            'plugins': ["checkbox", "search"]
+                        });
+                    var to = false;
+                    var searchComponentId = '#@Html.IdFor(m => m.AdditionalClassifications)' + '_search';
+                    $(searchComponentId)
+                        .keyup(function () {
+                            if (to) {
+                                clearTimeout(to);
+                            }
+                            to = setTimeout(function () {
+                                var v = $(searchComponentId).val();
+                                if (v.length >= 5) {
+                                    $('#@Html.IdFor(m => m.AdditionalClassifications)').jstree(true).search(v);
+                                }
+
+                            },
+                                250);
+                        });
+                }
+            }
+        );
+
+        $('#@Html.IdFor(m => m.AdditionalClassifications)')
+            .on("changed.jstree",
+                function(e, data) {
+                    var i, j, r = [];
+                    for (i = 0, j = data.selected.length; i < j; i++) {
+                        r.push(data.instance.get_node(data.selected[i]).text);
+                    }
+
+                    $("#@Html.IdFor(m => m.AdditionalClassificationsSelectedId)").val(r.join(';'));
+                });
+
+    </script>
+
+    @Scripts.Render("~/bundles/kendo-ui-configuration")
+
+    <script>
+        //initDateTimePickersPeriod("#@Html.IdFor(m => m.DeliveryDate.StartDate)", "#@Html.IdFor(m => m.DeliveryDate.EndDate)");
+
+
+    
+    </script>
+}

@@ -1,0 +1,32 @@
+﻿@model IEnumerable<Kapitalist.Web.Client.Models.Identity.ApplicationRole>
+
+@{
+    ViewBag.Title = "Управління ролями";
+}
+
+<h2>@ViewBag.Title</h2>
+<p>
+    @Html.ActionLink("Створити нову", "AddRole")
+</p>
+<table class="table table-hover">
+    <tr>
+        <th>Назва (латинецею)</th>
+        <th>Назва (кирилецею)</th>
+        <th>Опис</th>
+        <th></th>
+    </tr>
+    @if (Model != null)
+    {
+         foreach (var item in Model)
+         {
+             <tr>
+                 <td>@item.Name</td>
+                 <td>@item.NameCyrillic</td>
+                 <td>@item.Description</td>
+                 <td>
+                     @Html.ActionLink("Редагувати", "EditRole", new {roleId = item.Id})
+                 </td>
+             </tr>
+         }
+    }
+</table>

@@ -1,0 +1,109 @@
+@using Kapitalist.Data.Models.Consts
+@using Kapitalist.Web.Resources
+@model Kapitalist.Web.Client.ViewModels.Drafts.DraftTenderDefenseViewModel
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container header-and-body-content">
+    <h2>@GlobalRes.CreateDraftTender.</h2>
+
+    @using (Html.BeginForm("AddTender", "DraftTenderDefense", FormMethod.Post, new {@class = "form-horizontal", role = "form"}))
+    {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true, "", new {@class = "text-danger"})
+
+        <div class="form-group">
+            <label class="col-md-3 control-label">@GlobalRes.Title</label>
+            <div class="col-md-9">
+                @Html.TextBoxFor(m => m.Title, new {@class = "form-control"})
+                @Html.ValidationMessageFor(m => m.Title, "", new {@class = "text-danger"})
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-md-3 control-label">@GlobalRes.TitleEn</label>
+            <div class="col-md-9">
+                @Html.TextBoxFor(m => m.TitleEn, new {@class = "form-control"})
+                @Html.ValidationMessageFor(m => m.TitleEn, "", new {@class = "text-danger"})
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-md-3 control-label">@GlobalRes.Description</label>
+            <div class="col-md-9">
+                @Html.TextBoxFor(m => m.Description, new {@class = "form-control"})
+                @Html.ValidationMessageFor(m => m.Description, "", new {@class = "text-danger"})
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-md-3 control-label">@GlobalRes.AwardCriteria</label>
+            <div class="col-md-9">
+                @{
+                    var awardCriteriaList = new List<SelectListItem>
+                    {
+                        new SelectListItem {Text = GlobalRes.MostEconomicallyBetterOffer, Value = AwardCriteria.MOST_ECONOMICALLY_BETTER_OFFER, Selected = Model.AwardCriteria == AwardCriteria.MOST_ECONOMICALLY_BETTER_OFFER},
+                        new SelectListItem {Text = GlobalRes.Price, Value = AwardCriteria.LOWEST_COST, Selected = Model.AwardCriteria == AwardCriteria.LOWEST_COST}
+                    };
+                }
+                @Html.DropDownListFor(m => m.AwardCriteria, awardCriteriaList, new {@class = "form-control"})
+                @Html.ValidationMessageFor(m => m.AwardCriteria, "", new {@class = "text-danger"})
+            </div>
+        </div>
+
+        <div>
+            <div class="col-md-3 control-label">
+                <h3>@GlobalRes.Procurement</h3>
+            </div>
+            <div class="clearfix"></div>
+            <div class="form-group">
+                <label class="col-md-3 control-label">@GlobalRes.Currency</label>
+                <div class="col-md-9">
+                    @{
+                        var currencyList = new List<SelectListItem>
+                        {
+                            new SelectListItem {Text = Currency.UAH, Value = Currency.UAH, Selected = Model.Value?.Currency == Currency.UAH},
+                            new SelectListItem {Text = Currency.USD, Value = Currency.USD, Selected = Model.Value?.Currency == Currency.USD},
+                            new SelectListItem {Text = Currency.EUR, Value = Currency.EUR, Selected = Model.Value?.Currency == Currency.EUR},
+                            new SelectListItem {Text = Currency.GBP, Value = Currency.GBP, Selected = Model.Value?.Currency == Currency.GBP},
+                            new SelectListItem {Text = Currency.RUB, Value = Currency.RUB, Selected = Model.Value?.Currency == Currency.RUB}
+                        };
+                    }
+                    @Html.DropDownListFor(m => m.Value.Currency, currencyList, new {@class = "form-control"})
+                    @Html.ValidationMessageFor(m => m.Value.Currency, "", new {@class = "text-danger"})
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-3 control-label">@GlobalRes.VATIncluded</label>
+                <div class="col-md-9">
+                    @Html.CheckBoxFor(m => m.Value.VATIncluded, new {@class = "checkbox-inline"})
+                    @Html.ValidationMessageFor(m => m.Value.VATIncluded, "", new {@class = "text-danger"})
+                </div>
+            </div>
+        </div>
+
+        <div>
+            <div class="col-md-3 control-label">
+                <h3>@GlobalRes.Periods</h3>
+            </div>
+            <div class="clearfix"></div>
+            <div class="form-group">
+                <label class="col-md-3 control-label">@GlobalRes.Proposition</label>
+                <div class="col-md-9">
+                    <div>@Html.EditorFor(m => m.TenderPeriod.StartDate) - @Html.EditorFor(m => m.TenderPeriod.EndDate)</div>
+                    <div>
+                        @Html.ValidationMessageFor(m => m.TenderPeriod.StartDate, "", new {@class = "text-danger"})
+                        @Html.ValidationMessageFor(m => m.TenderPeriod.EndDate, "", new {@class = "text-danger"})
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            <div class="col-md-offset-3 col-md-9">
+                <input type="submit" value="@GlobalRes.Save" class="btn btn-default col-xs-12 col-md-3 square-background-blue btn-lg"/>
+            </div>
+        </div>
+    }
+</div>

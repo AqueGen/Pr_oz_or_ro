@@ -1,0 +1,51 @@
+﻿@using Kapitalist.Web.Client.Helpers.Html
+@model IEnumerable<Kapitalist.Web.Client.ViewModels.ContactViewModel>
+
+@if (Model != null && Model.Any())
+{
+    <div>
+        <fieldset>
+            <legend>@GlobalRes.Contacts</legend>
+            @foreach (var contact in Model)
+            {
+                <div class="col-md-10">
+                    <div class="col-md-12">
+                        <span class="col-md-4">@GlobalRes.Name:</span>
+                        <span class="col-md-8" name="@Html.NameFor(m => contact.Name)">@contact.Name</span>
+                    </div>
+                    <div class="col-md-12">
+                        <span class="col-md-4">@GlobalRes.Name En:</span>
+                        <span class="col-md-8" name="@Html.NameFor(m => contact.NameEn)">@contact.NameEn</span>
+                    </div>
+                    <div class="col-md-12">
+                        <span class="col-md-4">@GlobalRes.Language:</span>
+                        <span class="col-md-8" name="@Html.NameFor(m => contact.Language)">@contact.Language</span>
+                    </div>
+                    <div class="col-md-12">
+                        <span class="col-md-4">@GlobalRes.Email:</span>
+                        <span class="col-md-8" name="@Html.NameFor(m => contact.Email)">@contact.Email</span>
+                    </div>
+                    <div class="col-md-12">
+                        <span class="col-md-4">@GlobalRes.Site:</span>
+                        <span class="col-md-8" name="@Html.NameFor(m => contact.Url)">@contact.Url</span>
+                    </div>
+                    <div class="col-md-12">
+                        <span class="col-md-4">@GlobalRes.Telephone:</span>
+                        <span class="col-md-8" name="@Html.NameFor(m => contact.Telephone)">@contact.Telephone</span>
+                    </div>
+                    <div class="col-md-12">
+                        <span class="col-md-4">@GlobalRes.Fax:</span>
+                        <span class="col-md-8" name="@Html.NameFor(m => contact.FaxNumber)">@contact.FaxNumber</span>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    @Ajax.DeleteActionLink("", "DeleteContact", new {controller = "Contact", action = "DeleteContact", tenderGuid = contact.TenderGuid, contactId = contact.Id},
+                        new AjaxOptions {HttpMethod = "POST", Confirm = GlobalRes.Confirm, OnComplete = "location.reload()"},
+                        new {@class = "btn btn-default"})
+                </div>
+            }
+            <div class="clearfix"></div>
+        </fieldset>
+
+    </div>
+}

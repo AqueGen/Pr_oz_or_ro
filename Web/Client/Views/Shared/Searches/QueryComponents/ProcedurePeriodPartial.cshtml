@@ -1,0 +1,13 @@
+﻿@using Kapitalist.Web.Resources
+@model Kapitalist.Web.Client.ViewModels.Plans.PlanQueryViewModel
+
+
+<div class="block input-group block-procedurePeriod">
+    <label class="input-group-addon control-label">@GlobalRes.ProcedurePeriod</label>
+    @Html.EditorFor(m => m.ProcedurePeriod.StartDate)
+    <label class="input-group-addon control-label">-</label>
+    @Html.EditorFor(m => m.ProcedurePeriod.EndDate)
+    <a class="delete input-group-addon col-xd-1">
+        <i class="fa fa-times"></i>
+    </a>
+</div>

@@ -1,0 +1,585 @@
+﻿@using Kapitalist.Web.Resources
+@model Kapitalist.Web.Client.ViewModels.Published.DetailsViewModel
+
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+@if (Model != null)
+{
+    <div class="container header-and-body-content form-horizontal">
+        <div class="row">
+            <a class="btn btn-default square-background-blue">Взяти участь</a>
+            <a href="@Url.Action("Info", "TenderInfo", new {tenderGuid = Model.Tender.Guid})" class="btn btn-default square-background-blue">@GlobalRes.Edit</a>
+
+            
+            
+        </div>
+
+        <br />
+
+        <div class="col-md-offset-2">
+            <h3>Тендер</h3>
+        </div>
+        <div class="clearfix"></div>
+        <div class="form-group">
+            <label class="col-md-3 control-label">Закупівля:</label>
+            <div class="col-md-9">
+                <span name="@Html.NameFor(m => m.Tender.Identifier)" class="form-control">@Model.Tender.Identifier</span>
+            </div>
+        </div>
+
+        <div class="col-md-offset-2">
+            <h3>Інформація о замовнику</h3>
+        </div>
+        <div class="clearfix"></div>
+        <div class="form-group">
+            <label class="col-md-3 control-label">Найменування замовника:</label>
+            <div class="col-md-9">
+                <span name="@Html.NameFor(m => m.ProcuringEntity.Name)" class="form-control">@Model.ProcuringEntity.Name</span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-md-3 control-label">Код ЄДРПОУ:</label>
+            <div class="col-md-9">
+                <span name="@Html.NameFor(m => m)" class="form-control"></span>
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            <label class="col-md-3 control-label">Веб сайт:</label>
+            <div class="col-md-9">
+                @*<span name="@Html.NameFor(m => m.ProcuringEntity.Identifier.Uri)" class="form-control">@Model.ProcuringEntity.Identifier.Uri</span>*@
+            </div>
+        </div>
+
+
+
+        <div class="col-md-offset-2">
+            <h3>Місцезнаходження замовника</h3>
+        </div>
+        <div class="clearfix"></div>
+        <div class="form-group">
+            <label class="col-md-3 control-label">Країна:</label>
+            <div class="col-md-9">
+                <span name="@Html.NameFor(m => m.ProcuringEntity.Address.Country)" class="form-control">@Model.ProcuringEntity.Address.Country</span>
+            </div>
+            <label class="col-md-3 control-label">Регіон:</label>
+            <div class="col-md-9">
+                <span name="@Html.NameFor(m => m.ProcuringEntity.Address.Region)" class="form-control">@Model.ProcuringEntity.Address.Region</span>
+            </div>
+            <label class="col-md-3 control-label">Місто:</label>
+            <div class="col-md-9">
+                <span name="@Html.NameFor(m => m.ProcuringEntity.Address.Locality)" class="form-control">@Model.ProcuringEntity.Address.Locality</span>
+            </div>
+            <label class="col-md-3 control-label">Вулиця:</label>
+            <div class="col-md-9">
+                <span name="@Html.NameFor(m => m.ProcuringEntity.Address.Street)" class="form-control">@Model.ProcuringEntity.Address.Street</span>
+            </div>
+        </div>
+
+        <div class="col-md-offset-2">
+            <h3>Контактна особа замовника</h3>
+        </div>
+        <div class="clearfix"></div>
+        <div class="form-group">
+            <label class="col-md-3 control-label">Email:</label>
+            <div class="col-md-9">
+                <span name="@Html.NameFor(m => m.ProcuringEntity.ContactPoint.Email)" class="form-control">@Model.ProcuringEntity.ContactPoint.Email</span>
+            </div>
+            <label class="col-md-3 control-label">Номер телефону:</label>
+            <div class="col-md-9">
+                <span name="@Html.NameFor(m => m.ProcuringEntity.ContactPoint.Telephone)" class="form-control">@Model.ProcuringEntity.ContactPoint.Telephone</span>
+            </div>
+            <label class="col-md-3 control-label">Факс:</label>
+            <div class="col-md-9">
+                <span name="@Html.NameFor(m => m.ProcuringEntity.ContactPoint.FaxNumber)" class="form-control">@Model.ProcuringEntity.ContactPoint.FaxNumber</span>
+            </div>
+            <label class="col-md-3 control-label">Веб сайт:</label>
+            <div class="col-md-9">
+                <span name="@Html.NameFor(m => m.ProcuringEntity.ContactPoint.Url)" class="form-control">@Model.ProcuringEntity.ContactPoint.Url</span>
+            </div>
+        </div>
+
+
+
+        <div>
+            <div class="col-md-offset-2">
+                <h3>Інформація про процедуру закупівлі</h3>
+            </div>
+            <div class="clearfix"></div>
+            <div class="form-group">
+                <label class="col-md-3 control-label">Період уточнень</label>
+                <div class="col-md-9">
+                    <span name="@Html.NameFor(m => m.Tender.EnquiryPeriod)" class="form-control">@Html.DisplayFor(m => m.Tender.EnquiryPeriod.StartDate) - @Html.DisplayFor(m => m.Tender.EnquiryPeriod.EndDate)</span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-3 control-label">Період прийому пропозицій</label>
+                <div class="col-md-9">
+                    <span name="@Html.NameFor(m => m.Tender.TenderPeriod)" class="form-control">@Html.DisplayFor(m => m.Tender.TenderPeriod.StartDate) - @Html.DisplayFor(m => m.Tender.TenderPeriod.EndDate)</span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-3 control-label">Період аукціону</label>
+                <div class="col-md-9">
+                    <span name="@Html.NameFor(m => m.Tender.AuctionPeriod)" class="form-control">@Html.DisplayFor(m => m.Tender.AuctionPeriod.StartDate) - @Html.DisplayFor(m => m.Tender.AuctionPeriod.EndDate)</span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-3 control-label">Період визначення переможця</label>
+                <div class="col-md-9">
+                    <span name="@Html.NameFor(m => m.Tender.AwardPeriod)" class="form-control">@Html.DisplayFor(m => m.Tender.AwardPeriod.StartDate) - @Html.DisplayFor(m => m.Tender.AwardPeriod.EndDate)</span>
+                </div>
+            </div>
+        </div>
+
+
+        <div>
+            <div class="col-md-offset-2">
+                <h3>Інформація про предмет закупівлі</h3>
+            </div>
+            <div class="clearfix"></div>
+            <div class="form-group">
+                <label class="col-md-3 control-label">Статус</label>
+                <div class="col-md-9">
+                    <span name="@Html.NameFor(m => m.Tender.Status)" class="form-control">@Model.Tender.Status</span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-3 control-label">Конкрентна назва предмету закупівлі</label>
+                <div class="col-md-9">
+                    <span name="@Html.NameFor(m => m.Tender.Title)" class="form-control">@Model.Tender.Title</span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-3 control-label">Загальні відомості про закупівлю</label>
+                <div class="col-md-9">
+                    <span name="@Html.NameFor(m => m.Tender.Description)" class="form-control">@Model.Tender.Description</span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-3 control-label">Повний доступний бюджет закупівлі</label>
+                <div class="col-md-9">
+                    <span name="@Html.NameFor(m => m.Tender.Value)" class="form-control">@Model.Tender.Value.Amount @Model.Tender.Value.Currency @(Model.Tender.Value.VATIncluded ? "З ПДВ" : "Без ПДВ")</span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-3 control-label">Забезпечення тендерної пропозиції</label>
+                <div class="col-md-9">
+                    <span name="@Html.NameFor(m => m.Tender.MinimalStep)" class="form-control">@Model.Tender.MinimalStep.Amount @Model.Tender.MinimalStep.Currency @(Model.Tender.MinimalStep.VATIncluded ? "З ПДВ" : "Без ПДВ")</span>
+                </div>
+            </div>
+        </div>
+
+        <div>
+            <div class="col-md-offset-2">
+                <h3>Закупівлі</h3>
+            </div>
+
+            @foreach (var lot in Model.Lots)
+            {
+                <div class="col-md-offset-2">
+                    <h3>@GlobalRes.Lot</h3>
+                </div>
+                <div class="clearfix"></div>
+                <div class="form-group">
+                    <label class="col-md-3 control-label">@GlobalRes.Title</label>
+                    <div class="col-md-9">
+                        <span name="@Html.NameFor(m => lot.Title)" class="form-control">@lot.Title</span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-3 control-label">@GlobalRes.Description</label>
+                    <div class="col-md-9">
+                        <span name="@Html.NameFor(m => lot.Description)" class="form-control">@lot.Description</span>
+                    </div>
+                </div>
+
+                <div>
+                    <div class="col-md-offset-2">
+                        <h3>@GlobalRes.Procurement</h3>
+                    </div>
+                    <div class="clearfix"></div>
+                    <div class="form-group">
+                        <label class="col-md-3 control-label">@GlobalRes.Amount</label>
+                        <div class="col-md-9">
+                            <span name="@Html.NameFor(m => lot.Value)" class="form-control">@lot.Value.Amount @lot.Value.Currency</span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-3 control-label">@GlobalRes.VATIncluded</label>
+                        <div class="col-md-9">
+                            <span name="@Html.NameFor(m => lot.Value.VATIncluded)" class="form-control">@lot.Value.VATIncluded</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <div class="col-md-offset-2">
+                        <h3>@GlobalRes.Guarantee</h3>
+                    </div>
+                    <div class="clearfix"></div>
+                    <div class="form-group">
+                        <label class="col-md-3 control-label">@GlobalRes.Amount</label>
+                        <div class="col-md-9">
+                            <span name="@Html.NameFor(m => lot.Guarantee)" class="form-control">@lot.Guarantee.Amount @lot.Guarantee.Currency</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <div class="col-md-offset-2">
+                        <h3>@GlobalRes.MinimalStep</h3>
+                    </div>
+                    <div class="clearfix"></div>
+                    <div class="form-group">
+                        <label class="col-md-3 control-label">@GlobalRes.Amount</label>
+                        <div class="col-md-9">
+                            <span name="@Html.NameFor(m => lot.MinimalStep)" class="form-control">@lot.MinimalStep.Amount @lot.MinimalStep.Currency</span>
+                        </div>
+                    </div>
+                </div>
+
+                <br/>
+
+                foreach (var item in lot.Items)
+                {
+                    <div>
+                        <div class="col-md-offset-2">
+                            <h3>@GlobalRes.Item</h3>
+                        </div>
+                        <div class="clearfix"></div>
+                        <div class="form-group">
+                            <label class="col-md-3 control-label">@GlobalRes.Description</label>
+                            <div class="col-md-9">
+                                <span name="@Html.NameFor(m => item.Description)" class="form-control">@item.Description</span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-3 control-label">@GlobalRes.Quantity</label>
+                            <div class="col-md-9">
+                                <span name="@Html.NameFor(m => @item.Quantity)" class="form-control">@item.Quantity @item.Unit.Name (@item.Unit.Code)</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <div class="col-md-offset-2">
+                            <h3>@GlobalRes.Classification CPV</h3>
+                        </div>
+                        <div class="clearfix"></div>
+                        <div class="form-group">
+                            <label class="col-md-3 control-label">@item.Classification.Scheme</label>
+                            <div class="col-md-9">
+                                <span name="@Html.NameFor(m => item.Classification)" class="form-control">@item.Classification.Id - @item.Classification.Description</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <div class="col-md-offset-2">
+                            <h3>@GlobalRes.Classification GSIN</h3>
+                        </div>
+                        <div class="clearfix"></div>
+
+                        @foreach (var gsin in item.AdditionalClassifications)
+                        {
+                            <div class="form-group">
+                                <label class="col-md-3 control-label">@gsin.Scheme</label>
+                                <div class="col-md-9">
+                                    <span name="@Html.NameFor(m => gsin)" class="form-control">@gsin.Id - @gsin.Description</span>
+                                </div>
+                            </div>
+                        }
+
+                    </div>
+
+                    <div>
+                        <div class="col-md-offset-2">
+                            <h3>@GlobalRes.Periods</h3>
+                        </div>
+                        <div class="clearfix"></div>
+                        <div class="form-group">
+                            <label class="col-md-3 control-label">@GlobalRes.Delivery</label>
+                            <div class="col-md-9">
+                                <span name="@Html.NameFor(m => item.DeliveryDate)" class="form-control">@Html.DisplayFor(m => item.DeliveryDate.StartDate) - @Html.DisplayFor(m => item.DeliveryDate.EndDate)</span>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div>
+                        <div class="col-md-offset-2">
+                            <h3>@GlobalRes.Address</h3>
+                        </div>
+                        <div class="clearfix"></div>
+                        <div class="form-group">
+                            <label class="col-md-3 control-label">@GlobalRes.Country</label>
+                            <div class="col-md-9">
+                                <span name="@Html.NameFor(m => item.DeliveryAddress.Country)" class="form-control">@item.DeliveryAddress.Country</span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-3 control-label">@GlobalRes.Region</label>
+                            <div class="col-md-9">
+                                <span name="@Html.NameFor(m => item.DeliveryAddress.Region)" class="form-control">@item.DeliveryAddress.Region</span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-3 control-label">@GlobalRes.Locality</label>
+                            <div class="col-md-9">
+                                <span name="@Html.NameFor(m => item.DeliveryAddress.Locality)" class="form-control">@item.DeliveryAddress.Locality</span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-3 control-label">@GlobalRes.PostalCode</label>
+                            <div class="col-md-9">
+                                <span name="@Html.NameFor(m => item.DeliveryAddress.PostalCode)" class="form-control">@item.DeliveryAddress.PostalCode</span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-3 control-label">@GlobalRes.Street</label>
+                            <div class="col-md-9">
+                                <span name="@Html.NameFor(m => item.DeliveryAddress.Street)" class="form-control">@item.DeliveryAddress.Street</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <div class="col-md-offset-2">
+                            <h3>@GlobalRes.DeliveryLocation</h3>
+                        </div>
+                        <div class="clearfix"></div>
+                        <div class="form-group">
+                            <label class="col-md-3 control-label">@GlobalRes.Longitude</label>
+                            <div class="col-md-9">
+                                <span name="@Html.NameFor(m => item.DeliveryLocation.Longitude)" class="form-control">@item.DeliveryLocation.Longitude</span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-3 control-label">@GlobalRes.Latitude</label>
+                            <div class="col-md-9">
+                                <span name="@Html.NameFor(m => item.DeliveryLocation.Latitude)" class="form-control">@item.DeliveryLocation.Latitude</span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-3 control-label">@GlobalRes.Elevation</label>
+                            <div class="col-md-9">
+                                <span name="@Html.NameFor(m => item.DeliveryLocation.Elevation)" class="form-control">@item.DeliveryLocation.Elevation</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <br/>
+                }
+                <hr />
+            }
+        </div>
+
+        <div>
+            @foreach (var item in Model.Items)
+            {
+                <div>
+                    <div class="col-md-offset-2">
+                        <h3>@GlobalRes.Item</h3>
+                    </div>
+                    <div class="clearfix"></div>
+                    <div class="form-group">
+                        <label class="col-md-3 control-label">@GlobalRes.Description</label>
+                        <div class="col-md-9">
+                            <span name="@Html.NameFor(m => item.Description)" class="form-control">@item.Description</span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-3 control-label">@GlobalRes.Quantity</label>
+                        <div class="col-md-9">
+                            <span name="@Html.NameFor(m => item.Quantity)" class="form-control">@item.Quantity @item.Unit.Name (@item.Unit.Code)</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <div class="col-md-offset-2">
+                        <h3>@GlobalRes.Classification CPV</h3>
+                    </div>
+                    <div class="clearfix"></div>
+                    <div class="form-group">
+                        <label class="col-md-3 control-label">@item.Classification.Scheme</label>
+                        <div class="col-md-9">
+                            <span name="@Html.NameFor(m => item.Classification)" class="form-control">@item.Classification.Id - @item.Classification.Description</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <div class="col-md-offset-2">
+                        <h3>@GlobalRes.Classification GSIN</h3>
+                    </div>
+                    <div class="clearfix"></div>
+
+                    @foreach (var gsin in item.AdditionalClassifications)
+                    {
+                        <div class="form-group">
+                            <label class="col-md-3 control-label">@gsin.Scheme</label>
+                            <div class="col-md-9">
+                                <span name="@Html.NameFor(m => gsin)" class="form-control">@gsin.Id - @gsin.Description</span>
+                            </div>
+                        </div>
+                    }
+
+                </div>
+
+                <div>
+                    <div class="col-md-offset-2">
+                        <h3>@GlobalRes.Periods</h3>
+                    </div>
+                    <div class="clearfix"></div>
+                    <div class="form-group">
+                        <label class="col-md-3 control-label">@GlobalRes.Delivery</label>
+                        <div class="col-md-9">
+                            <span name="@Html.NameFor(m => item.DeliveryDate)" class="form-control">@Html.DisplayFor(m => item.DeliveryDate.StartDate) - @Html.DisplayFor(m => item.DeliveryDate.EndDate)</span>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div>
+                    <div class="col-md-offset-2">
+                        <h3>@GlobalRes.Address</h3>
+                    </div>
+                    <div class="clearfix"></div>
+                    <div class="form-group">
+                        <label class="col-md-3 control-label">@GlobalRes.Country</label>
+                        <div class="col-md-9">
+                            <span name="@Html.NameFor(m => item.DeliveryAddress.Country)" class="form-control">@item.DeliveryAddress.Country</span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-3 control-label">@GlobalRes.Region</label>
+                        <div class="col-md-9">
+                            <span name="@Html.NameFor(m => item.DeliveryAddress.Region)" class="form-control">@item.DeliveryAddress.Region</span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-3 control-label">@GlobalRes.Locality</label>
+                        <div class="col-md-9">
+                            <span name="@Html.NameFor(m => item.DeliveryAddress.Locality)" class="form-control">@item.DeliveryAddress.Locality</span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-3 control-label">@GlobalRes.PostalCode</label>
+                        <div class="col-md-9">
+                            <span name="@Html.NameFor(m => item.DeliveryAddress.PostalCode)" class="form-control">@item.DeliveryAddress.PostalCode</span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-3 control-label">@GlobalRes.Street</label>
+                        <div class="col-md-9">
+                            <span name="@Html.NameFor(m => item.DeliveryAddress.Street)" class="form-control">@item.DeliveryAddress.Street</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <div class="col-md-offset-2">
+                        <h3>@GlobalRes.DeliveryLocation</h3>
+                    </div>
+                    <div class="clearfix"></div>
+                    <div class="form-group">
+                        <label class="col-md-3 control-label">@GlobalRes.Longitude</label>
+                        <div class="col-md-9">
+                            <span name="@Html.NameFor(m => item.DeliveryLocation.Longitude)" class="form-control">@item.DeliveryLocation.Longitude</span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-3 control-label">@GlobalRes.Latitude</label>
+                        <div class="col-md-9">
+                            <span name="@Html.NameFor(m => item.DeliveryLocation.Latitude)" class="form-control">@item.DeliveryLocation.Latitude</span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-3 control-label">@GlobalRes.Elevation</label>
+                        <div class="col-md-9">
+                            <span name="@Html.NameFor(m => item.DeliveryLocation.Elevation)" class="form-control">@item.DeliveryLocation.Elevation</span>
+                        </div>
+                    </div>
+                </div>
+
+                <br/>
+            }
+        </div>
+
+
+        @if (Model.TenderDocuments.Count > 0)
+        {
+            <div>
+                <div class="row">
+                    <span>Документи тендеру:</span>
+                </div>
+
+                @foreach (var document in Model.TenderDocuments)
+                {
+                    <div class="col-xs-12">
+                        <span>@document.DatePublished <a href="@document.Url" target="_blank">@document.Title</a></span>
+                    </div>
+                }
+            </div>
+            <br/>
+            <hr />
+        }
+
+        @if (Model.Questions.Any())
+        {
+            <div class="row">Запитання:</div>
+            <div>
+                @foreach (var question in Model.Questions)
+                {
+                    <div class="row">
+                        <div class="col-xs-3">@GlobalRes.Object:</div>
+                        <div name="@Html.NameFor(m => question.QuestionOf)" class="col-xs-9">@question.QuestionOf</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-3">@GlobalRes.Date:</div>
+                        <div name="@Html.NameFor(m => question.Date)" class="col-xs-9">@question.Date</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-3">@GlobalRes.Title:</div>
+                        <div name="@Html.NameFor(m => question.Title)"  class="col-xs-9">@question.Title</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-3">@GlobalRes.Question:</div>
+                        <div name="@Html.NameFor(m => question.Description)" class="col-xs-9">@question.Description</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-3">@GlobalRes.Answer:</div>
+                        @if (string.IsNullOrWhiteSpace(question.Answer))
+                        {
+                            <a href="@Url.Action("AddAnswer", "Question", new {tenderGuid = Model.Tender.Guid, questionId = question.StringId})"
+                               class="btn btn-default square-background-blue">
+                                @GlobalRes.AddAnswer
+                            </a>
+                        }
+                        else
+                        {
+                            <div name="@Html.NameFor(m => question.Answer)" class="col-xs-9">@question.Answer</div>
+                        }
+                    </div>
+                    <br/>
+                    <hr />
+                }
+            </div>
+        }
+
+    </div>
+}
+else
+{
+    <div class="container">
+        <div class="row">Тендер не знайдено.</div>
+    </div>
+}

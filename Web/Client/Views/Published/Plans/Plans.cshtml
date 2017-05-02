@@ -1,0 +1,13 @@
+﻿@model Kapitalist.Web.Client.ViewModels.Plans.PlansViewModel
+
+@if (User.Identity.IsAuthenticated)
+{
+    <div class="container">
+        <a href="@Url.Action("AddPlan", "DraftPlan")" class="btn btn-default col-xs-12 col-md-3 square-background-yellow btn-lg">Створити план</a>
+    </div>
+}
+<div class="container-fluid">
+    @{
+        Html.RenderPartial("Searches/Plans/SearchPanel", Model);
+    }
+</div>

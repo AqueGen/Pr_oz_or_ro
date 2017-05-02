@@ -1,0 +1,30 @@
+﻿@model Kapitalist.Web.Client.ViewModels.Drafts.DraftPlanViewModel
+    
+<div class="form-group">
+    <label class="col-md-3 control-label">ClassificationId</label>
+    <div class="col-md-9">
+        @Html.TextBoxFor(m => m.Classification.Id, null, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Classification.Id, "", new { @class = "text-danger" })
+    </div>
+</div>
+<div class="form-group">
+    <label class="col-md-3 control-label">ClassificationDescription</label>
+    <div class="col-md-9">
+        @Html.TextBoxFor(m => m.Classification.Description, null, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Classification.Description, "", new { @class = "text-danger" })
+    </div>
+</div>
+<div class="form-group">
+    <label class="col-md-3 control-label">ClassificationScheme</label>
+    <div class="col-md-9">
+        @Html.TextBoxFor(m => m.Classification.Scheme, null, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Classification.Scheme, "", new { @class = "text-danger" })
+    </div>
+</div>
+<div class="form-group">
+    <label class="col-md-3 control-label">ClassificationUri</label>
+    <div class="col-md-9">
+        @Html.TextBoxFor(m => m.Classification.Uri, null, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Classification.Uri, "", new { @class = "text-danger" })
+    </div>
+</div>

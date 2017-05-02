@@ -1,0 +1,70 @@
+﻿@model Kapitalist.Web.Client.ViewModels.Published.DocumentViewModel
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container header-and-body-content">
+    <h2>@GlobalRes.EditDocument.</h2>
+
+    @using (Html.BeginForm("EditDocument", "Document", FormMethod.Post, new { @class = "form-horizontal", role = "form", enctype = "multipart/form-data" }))
+    {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+        @Html.HiddenFor(m => m.TenderGuid)
+        @Html.HiddenFor(m => m.StringId)
+        @Html.HiddenFor(m => m.DocumentOf)
+        @Html.HiddenFor(m => m.RelatedId)
+
+
+        <div class="form-group">
+            <label class="col-md-3 control-label">@GlobalRes.Title</label>
+            <div class="col-md-9">
+                @Html.TextBoxFor(m => m.Title, null, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.Title, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-md-3 control-label">@GlobalRes.Description</label>
+            <div class="col-md-9">
+                @Html.TextBoxFor(m => m.Description, null, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.Description, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-md-3 control-label">@GlobalRes.DocumentType</label>
+            <div class="col-md-9">
+                @Html.TextBoxFor(m => m.DocumentType, null, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.DocumentType, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-md-3 control-label">@GlobalRes.Format</label>
+            <div class="col-md-9">
+                @Html.TextBoxFor(m => m.Format, null, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.Format, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-md-3 control-label">@GlobalRes.Language</label>
+            <div class="col-md-9">
+                @Html.TextBoxFor(m => m.Language, null, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.Language, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div>
+            <label class="col-md-3 control-label">@GlobalRes.Document</label>
+            <div class="col-md-9">
+                <input type="file" name="@Html.NameFor(m => m.Document)" id="@Html.IdFor(m => m.Document)" class="btn btn-default" />
+                @Html.ValidationMessageFor(m => m.Document, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+
+        <div class="col-md-offset-3 col-md-9">
+            <a href="@Url.Action("Info", "TenderInfo", new {tenderGuid = Model.TenderGuid})" class="btn btn-default col-xs-12 col-md-3 square-background-yellow btn-lg">@GlobalRes.Cancel</a>
+            <input type="submit" value="@GlobalRes.Save" class="btn btn-default col-xs-12 col-md-3 square-background-blue btn-lg" />
+        </div>
+    }
+</div>

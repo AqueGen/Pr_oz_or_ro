@@ -1,0 +1,211 @@
+@using Kapitalist.Data.Models
+@using Kapitalist.Data.Models.Enums
+@using Kapitalist.Web.Client.Helpers.Html
+@model Kapitalist.Web.Client.ViewModels.Drafts.DraftTenderLimitedViewModel
+
+<div class="container header-and-body-content form-horizontal">
+
+    @Html.ValidationSummary(true)
+
+    @if (Model.ProcuringEntity != null)
+    {
+        <fieldset>
+            <legend>@GlobalRes.Procurer</legend>
+            <div class="col-md-10">
+                <div class="col-md-12">
+                    <span class="col-md-4">@GlobalRes.Name:</span>
+                    <span class="col-md-8" name="@Html.NameFor(m => m.ProcuringEntity.Name)">@Model.ProcuringEntity.Name</span>
+                </div>
+                <div class="col-md-12">
+                    <span class="col-md-4"> Ó‰ ›ƒ–œŒ”:</span>
+                    <span class="col-md-8" name="@Html.NameFor(m => m.ProcuringEntity)"></span>
+                </div>
+                <div class="col-md-12">
+                    <span class="col-md-4">¬Â· Ò‡ÈÚ:</span>
+                    <span class="col-md-8" name="@Html.NameFor(m => m.ProcuringEntity.ContactPoint.Url)">@Model.ProcuringEntity.ContactPoint.Url</span>
+                </div>
+                <div class="col-md-12">
+                    <span class="col-md-1">@GlobalRes.Address:</span>
+                    <div class="col-md-11">
+                        <div class="col-md-12">
+                            <span class="col-md-3">@GlobalRes.Country:</span>
+                            <span class="col-md-9" name="@Html.NameFor(m => m.ProcuringEntity.Address.Country)">@Model.ProcuringEntity.Address.Country</span>
+                        </div>
+                        <div class="col-md-12">
+                            <span class="col-md-3">@GlobalRes.Region:</span>
+                            <span class="col-md-9" name="@Html.NameFor(m => m.ProcuringEntity.Address.Region)"> @Model.ProcuringEntity.Address.Region</span>
+                        </div>
+                        <div class="col-md-12">
+                            <span class="col-md-3">@GlobalRes.Locality:</span>
+                            <span class="col-md-9" name="@Html.NameFor(m => m.ProcuringEntity.Address.Locality)">@Model.ProcuringEntity.Address.Locality</span>
+                        </div>
+                        <div class="col-md-12">
+                            <span class="col-md-3">@GlobalRes.PostalCode:</span>
+                            <span class="col-md-9" name="@Html.NameFor(m => m.ProcuringEntity.Address.PostalCode)">@Model.ProcuringEntity.Address.PostalCode</span>
+                        </div>
+                        <div class="col-md-12">
+                            <span class="col-md-3">@GlobalRes.Street:</span>
+                            <span class="col-md-9" name="@Html.NameFor(m => m.ProcuringEntity.Address.Street)">@Model.ProcuringEntity.Address.Street</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </fieldset>
+    }
+    <fieldset>
+        <legend>@GlobalRes.Tender</legend>
+
+        <div class="col-md-10">
+            <div class="col-md-12">
+                <span class="col-md-4">@GlobalRes.Type:</span>
+                <span class="col-md-8" name="@Html.NameFor(m => m.ProcurementMethodType)">@Model.ProcurementMethodType</span>
+            </div>
+            <div class="col-md-12">
+                <span class="col-md-4">@GlobalRes.Title:</span>
+                <span class="col-md-8" name="@Html.NameFor(m => m.Title)">@Model.Title</span>
+            </div>
+            <div class="col-md-12">
+                <span class="col-md-4">@GlobalRes.Description:</span>
+                <span class="col-md-8" name="@Html.NameFor(m => m.Description)">@Model.Description</span>
+            </div>
+            <div class="col-md-12">
+                <span class="col-md-4">@GlobalRes.Reason:</span>
+                <span class="col-md-8" name="@Html.NameFor(m => m.Cause)">@Model.Cause</span>
+            </div>
+            <div class="col-md-12">
+                <span class="col-md-4">@GlobalRes.Reasoning:</span>
+                <span class="col-md-8" name="@Html.NameFor(m => m.CauseDescription)">@Model.CauseDescription</span>
+            </div>
+            <div class="col-md-12">
+                <span class="col-md-4">@GlobalRes.ValueAmount:</span>
+                <span class="col-md-8" name="@Html.NameFor(m => m.Value.Amount)">@Model.Value.Amount @Model.Value.Currency @(Model.Value.VATIncluded ? GlobalRes.VATIncludeTrue : GlobalRes.VATIncludeFalse)</span>
+            </div>
+        </div>
+
+        <div class="col-md-2">
+            <a href="@Url.Action("EditTender", "DraftTenderLimited", new {tenderGuid = Model.Guid})" class="btn btn-default">
+                <i class="fa fa-pencil" aria-hidden="true"></i>
+            </a>
+            @Ajax.DeleteActionLink("", "DeleteTender", new {controller = "DraftTenderLimited", action = "DeleteTender", tenderGuid = Model.Guid},
+                new AjaxOptions {HttpMethod = "POST", Confirm = GlobalRes.Confirm, OnComplete = $"window.location = '{Url.Action("MyTenderDrafts", "Profile")}'"},
+                new {@class = "btn btn-default"})
+        </div>
+
+        <div class="clearfix"></div>
+        <a href="@Url.Action("AddItem", "DraftItem", new {tenderGuid = Model.Guid})" class="btn new-item-btn">
+            <i class="fa fa-plus-circle"></i>@GlobalRes.AddItem
+        </a>
+        <a href="@Url.Action("AddDocument", "DraftDocument", new {tenderGuid = Model.Guid, relatedTo = RelatedTo.Tender, relatedId = Model.Guid.ToString("N")})" class="btn new-item-btn">
+            <i class="fa fa-plus-circle"></i>@GlobalRes.AddDocument
+        </a>
+
+        @{
+            if (Model.Documents != null)
+            {
+                Html.RenderPartial("DraftDocumentPartialView", Model.Documents);
+            }
+        }
+    </fieldset>
+
+
+    @if (Model.Items != null && Model.Items.Any())
+    {
+        <div>
+            @{ int itemIndex = 0; }
+            @foreach (var item in Model.Items)
+            {
+                itemIndex++;
+                <fieldset>
+                    <legend>@GlobalRes.Item π@itemIndex</legend>
+
+                    <div class="col-md-10">
+                        <div class="col-md-12">
+                            <span class="col-md-4">@GlobalRes.Description:</span>
+                            <span class="col-md-8" name="@Html.NameFor(m => item.Description)">@item.Description</span>
+                        </div>
+                        <div class="col-md-12">
+                            <span class="col-md-4">@GlobalRes.Quantity:</span>
+                            <span class="col-md-8" name="@Html.NameFor(m => item.Quantity)">@item.Quantity @item.Unit.Name</span>
+                        </div>
+                        <div class="col-md-12">
+                            <span class="col-md-1">@GlobalRes.Address:</span>
+                            <div class="col-md-11">
+                                <div class="col-md-12">
+                                    <span class="col-md-3">@GlobalRes.Country:</span>
+                                    <span class="col-md-9" name="@Html.NameFor(m => item.DeliveryAddress.Country)">@item.DeliveryAddress.Country</span>
+                                </div>
+                                <div class="col-md-12">
+                                    <span class="col-md-3">@GlobalRes.Region:</span>
+                                    <span class="col-md-9" name="@Html.NameFor(m => item.DeliveryAddress.Region)"> @item.DeliveryAddress.Region</span>
+                                </div>
+                                <div class="col-md-12">
+                                    <span class="col-md-3">@GlobalRes.Locality:</span>
+                                    <span class="col-md-9" name="@Html.NameFor(m => item.DeliveryAddress.Locality)">@item.DeliveryAddress.Locality</span>
+                                </div>
+                                <div class="col-md-12">
+                                    <span class="col-md-3">@GlobalRes.PostalCode:</span>
+                                    <span class="col-md-9" name="@Html.NameFor(m => item.DeliveryAddress.PostalCode)">@item.DeliveryAddress.PostalCode</span>
+                                </div>
+                                <div class="col-md-12">
+                                    <span class="col-md-3">@GlobalRes.Street:</span>
+                                    <span class="col-md-9" name="@Html.NameFor(m => item.DeliveryAddress.Street)">@item.DeliveryAddress.Street</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <span class="col-md-4">@GlobalRes.Delivery:</span>
+                            <div class="col-md-8" name="@Html.NameFor(m => item.DeliveryDate)">@Html.DisplayFor(m => item.DeliveryDate.StartDate) - @Html.DisplayFor(m => item.DeliveryDate.EndDate)</div>
+                        </div>
+                        <div class="col-md-12">
+                            <span class="col-md-4">@GlobalRes.CpvCode:</span>
+                            <span class="col-md-8" name="@Html.NameFor(m => item.Classification)">@item.Classification.Id @item.Classification.Description</span>
+                        </div>
+                        <div class="col-md-12">
+                            <span class="col-md-3">@GlobalRes.GsinCode:</span>
+                            <div class="col-md-9" name="@Html.NameFor(m => item.AdditionalClassifications)">
+                                @foreach (var gsin in item.AdditionalClassifications)
+                                {
+                                    <span class="col-md-1">@gsin.Scheme</span>
+                                    <div class="col-md-11">
+                                        <span>@gsin.Id @gsin.Description</span>
+                                    </div>
+                                }
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="col-md-2">
+                        <a href="@Url.Action("EditItem", "DraftItem", new {tenderGuid = item.TenderGuid, itemId = item.StringId})" class="btn btn-default">
+                            <i class="fa fa-pencil" aria-hidden="true"></i>
+                        </a>
+                        @Ajax.DeleteActionLink("", "DeleteItem", new {controller = "DraftItem", action = "DeleteItem", tenderGuid = Model.Guid, itemId = item.StringId},
+                            new AjaxOptions {HttpMethod = "POST", Confirm = GlobalRes.Confirm, OnComplete = "location.reload()"},
+                            new {@class = "btn btn-default"})
+                    </div>
+                    <div class="clearfix"></div>
+                    <a href="@Url.Action("AddDocument", "DraftDocument", new {tenderGuid = item.TenderGuid, relatedTo = RelatedTo.Item, relatedId = item.StringId})" class="btn new-item-btn">
+                        <i class="fa fa-plus-circle"></i>@GlobalRes.AddDocument
+                    </a>
+                    @{
+                        if (item.Documents != null)
+                        {
+                            Html.RenderPartial("DraftDocumentPartialView", item.Documents);
+                        }
+                    }
+                </fieldset>
+            }
+        </div>
+    }
+
+    <div class="col-md-offset-3 col-md-9">
+        @if (ViewData.ModelState.IsValid)
+        {
+            using (Html.BeginForm("Publish", "DraftTenderInfo", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+            {
+                @Html.HiddenFor(m => m.Guid)
+                <input type="submit" value="@GlobalRes.Publish" class="btn btn-default col-xs-12 col-md-3 square-background-blue btn-lg" />
+            }
+        }
+    </div>
+</div>

@@ -1,0 +1,148 @@
+﻿﻿@model Kapitalist.Web.Client.ViewModels.BasePlanItemViewModel
+
+@Html.HiddenFor(m => m.PlanGuid)
+@Html.HiddenFor(m => m.StringId)
+
+<div class="form-group">
+    <label class="col-md-3 control-label">ClassificationId</label>
+    <div class="col-md-9">
+        @Html.TextBoxFor(m => m.Classification.Id, null, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Classification.Id, "", new { @class = "text-danger" })
+    </div>
+</div>
+<div class="form-group">
+    <label class="col-md-3 control-label">ClassificationDescription</label>
+    <div class="col-md-9">
+        @Html.TextBoxFor(m => m.Classification.Description, null, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Classification.Description, "", new { @class = "text-danger" })
+    </div>
+</div>
+<div class="form-group">
+    <label class="col-md-3 control-label">ClassificationScheme</label>
+    <div class="col-md-9">
+        @Html.TextBoxFor(m => m.Classification.Scheme, null, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Classification.Scheme, "", new { @class = "text-danger" })
+    </div>
+</div>
+<div class="form-group">
+    <label class="col-md-3 control-label">ClassificationUri</label>
+    <div class="col-md-9">
+        @Html.TextBoxFor(m => m.Classification.Uri, null, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Classification.Uri, "", new { @class = "text-danger" })
+    </div>
+</div>
+
+<div class="form-group">
+    <label class="col-md-3 control-label">Назва країни</label>
+    <div class="col-md-9">
+        @Html.TextBoxFor(m => m.DeliveryAddress.Country, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.DeliveryAddress.Country, "", new { @class = "text-danger" })
+    </div>
+</div>
+<div class="form-group">
+    <label class="col-md-3 control-label">Область</label>
+    <div class="col-md-9">
+        @Html.TextBoxFor(m => m.DeliveryAddress.Region, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.DeliveryAddress.Region, "", new { @class = "text-danger" })
+    </div>
+</div>
+<div class="form-group">
+    <label class="col-md-3 control-label">Населений пункт</label>
+    <div class="col-md-9">
+        @Html.TextBoxFor(m => m.DeliveryAddress.Locality, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.DeliveryAddress.Locality, "", new { @class = "text-danger" })
+    </div>
+</div>
+<div class="form-group">
+    <label class="col-md-3 control-label">Поштовий індекс</label>
+    <div class="col-md-9">
+        @Html.TextBoxFor(m => m.DeliveryAddress.PostalCode, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.DeliveryAddress.PostalCode, "", new { @class = "text-danger" })
+    </div>
+</div>
+<div class="form-group">
+    <label class="col-md-3 control-label">Вулиця</label>
+    <div class="col-md-9">
+        @Html.TextBoxFor(m => m.DeliveryAddress.Street, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.DeliveryAddress.Street, "", new { @class = "text-danger" })
+    </div>
+</div>
+
+<div class="form-group">
+    <label class="col-md-3 control-label">DeliveryDate</label>
+    <div class="col-md-9">
+        @Html.EditorFor(m => m.DeliveryDate.StartDate)
+        -
+        @Html.EditorFor(m => m.DeliveryDate.EndDate)
+    </div>
+    <div class="col-md-9">
+        @Html.ValidationMessageFor(m => m.DeliveryDate.StartDate, "", new { @class = "text-danger" })
+        @Html.ValidationMessageFor(m => m.DeliveryDate.EndDate, "", new { @class = "text-danger" })
+    </div>
+</div>
+
+<div class="form-group">
+    <label class="col-md-3 control-label">DeliveryLocation.Elevation</label>
+    <div class="col-md-9">
+        @Html.TextBoxFor(m => m.DeliveryLocation.Elevation, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.DeliveryLocation.Elevation, "", new { @class = "text-danger" })
+    </div>
+</div>
+<div class="form-group">
+    <label class="col-md-3 control-label">DeliveryLocation.Latitude</label>
+    <div class="col-md-9">
+        @Html.TextBoxFor(m => m.DeliveryLocation.Latitude, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.DeliveryLocation.Latitude, "", new { @class = "text-danger" })
+    </div>
+</div>
+<div class="form-group">
+    <label class="col-md-3 control-label">DeliveryLocation.Longitude</label>
+    <div class="col-md-9">
+        @Html.TextBoxFor(m => m.DeliveryLocation.Longitude, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.DeliveryLocation.Longitude, "", new { @class = "text-danger" })
+    </div>
+</div>
+
+<div class="form-group">
+    <label class="col-md-3 control-label">Description</label>
+    <div class="col-md-9">
+        @Html.TextBoxFor(m => m.Description, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Description, "", new { @class = "text-danger" })
+    </div>
+</div>
+<div class="form-group">
+    <label class="col-md-3 control-label">Description</label>
+    <div class="col-md-9">
+        @Html.TextBoxFor(m => m.Description, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Description, "", new { @class = "text-danger" })
+    </div>
+</div>
+<div class="form-group">
+    <label class="col-md-3 control-label">Quantity</label>
+    <div class="col-md-9">
+        @Html.TextBoxFor(m => m.Quantity, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Quantity, "", new { @class = "text-danger" })
+    </div>
+</div>
+<div class="form-group">
+    <label class="col-md-3 control-label">Unit.Code</label>
+    <div class="col-md-9">
+        @Html.TextBoxFor(m => m.Unit.Code, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Unit.Code, "", new { @class = "text-danger" })
+    </div>
+</div>
+<div class="form-group">
+    <label class="col-md-3 control-label">Unit.Name</label>
+    <div class="col-md-9">
+        @Html.TextBoxFor(m => m.Unit.Name, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Unit.Name, "", new { @class = "text-danger" })
+    </div>
+</div>
+
+
+
+@Scripts.Render("~/bundles/tender/create")
+@Scripts.Render("~/bundles/kendo-ui-configuration")
+<script>
+    initDateTimePickersPeriod('#@Html.IdFor(m => m.DeliveryDate.StartDate)', '#@Html.IdFor(m => m.DeliveryDate.EndDate)')
+</script>

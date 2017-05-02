@@ -1,0 +1,94 @@
+﻿@using Kapitalist.Web.Client.Helpers.Html
+@using Kapitalist.Web.Resources
+@model Kapitalist.Web.Client.ViewModels.Tenders.TendersViewModel
+
+
+<div class="row">
+
+    <div class="col-xs-12">
+        @Html.ActionLink("Tenders", "Index", "Tenders", null, null)
+        @Html.ActionLink("Plans", "Index", "Plans", null, null)
+    </div>
+    <h2>
+        <span class="col-xs-12">@GlobalRes.SearchTender </span>
+    </h2>
+</div>
+
+<div class="row">
+    @Ajax.AddActionLink(@GlobalRes.Keyword, "GetTemplate", new {controller = "Tenders", action = "GetTemplate", template = "Keyword"}, new AjaxOptions {HttpMethod = "GET", UpdateTargetId = "blocks", InsertionMode = InsertionMode.InsertAfter}, new {@class = "btn query-btn"})
+    @Ajax.AddActionLink(@GlobalRes.ProcurementNumber, "GetTemplate", new {controller = "Tenders", action = "GetTemplate", template = "ProcurementNumber"}, new AjaxOptions {HttpMethod = "GET", UpdateTargetId = "blocks", InsertionMode = InsertionMode.InsertAfter}, new {@class = "btn query-btn"})
+    @Ajax.AddActionLink(@GlobalRes.CpvCode, "GetTemplate", new {controller = "Tenders", action = "GetTemplate", template = "CpvCode"}, new AjaxOptions {HttpMethod = "GET", UpdateTargetId = "blocks", InsertionMode = InsertionMode.InsertAfter}, new {@class = "btn query-btn"})
+    @Ajax.AddActionLink(@GlobalRes.GsinCode, "GetTemplate", new {controller = "Tenders", action = "GetTemplate", template = "GsinCode"}, new AjaxOptions {HttpMethod = "GET", UpdateTargetId = "blocks", InsertionMode = InsertionMode.InsertAfter}, new {@class = "btn query-btn"})
+    @Ajax.AddActionLink(@GlobalRes.Procurer, "GetTemplate", new {controller = "Tenders", action = "GetTemplate", template = "Procurer"}, new AjaxOptions {HttpMethod = "GET", UpdateTargetId = "blocks", InsertionMode = InsertionMode.InsertAfter}, new {@class = "btn query-btn"})
+    @Ajax.AddActionLink(@GlobalRes.Region, "GetTemplate", new {controller = "Tenders", action = "GetTemplate", template = "Region"}, new AjaxOptions {HttpMethod = "GET", UpdateTargetId = "blocks", InsertionMode = InsertionMode.InsertAfter}, new {@class = "btn query-btn"})
+    @Ajax.AddActionLink(@GlobalRes.Status, "GetTemplate", new {controller = "Tenders", action = "GetTemplate", template = "Status"}, new AjaxOptions {HttpMethod = "GET", UpdateTargetId = "blocks", InsertionMode = InsertionMode.InsertAfter}, new {@class = "btn query-btn"})
+
+    @Ajax.AddActionLink(@GlobalRes.ApplicationsSubmissionDate, "GetTemplate", new {controller = "Tenders", action = "GetTemplate", template = "ApplicationsSubmissionPeriod"}, new AjaxOptions {HttpMethod = "GET", UpdateTargetId = "blocks", InsertionMode = InsertionMode.InsertAfter}, new {@id = Html.IdFor(m => m.Query.ApplicationsSubmissionPeriod), @class = "btn query-btn applicationsSubmissionPeriod"})
+    @Ajax.AddActionLink(@GlobalRes.ClarificationDate, "GetTemplate", new {controller = "Tenders", action = "GetTemplate", template = "ClarificationPeriod"}, new AjaxOptions {HttpMethod = "GET", UpdateTargetId = "blocks", InsertionMode = InsertionMode.InsertAfter}, new {@id = Html.IdFor(m => m.Query.ClarificationPeriod), @class = "btn query-btn clarificationPeriod"})
+    @Ajax.AddActionLink(@GlobalRes.AuctionDate, "GetTemplate", new {controller = "Tenders", action = "GetTemplate", template = "AuctionPeriod"}, new AjaxOptions {HttpMethod = "GET", UpdateTargetId = "blocks", InsertionMode = InsertionMode.InsertAfter}, new {@id = Html.IdFor(m => m.Query.AuctionPeriod), @class = "btn query-btn auctionPeriod"})
+    @Ajax.AddActionLink(@GlobalRes.QualificationDate, "GetTemplate", new {controller = "Tenders", action = "GetTemplate", template = "QualificationPeriod"}, new AjaxOptions {HttpMethod = "GET", UpdateTargetId = "blocks", InsertionMode = InsertionMode.InsertAfter}, new {@id = Html.IdFor(m => m.Query.QualificationPeriod), @class = "btn query-btn qualificationPeriod"})
+</div>
+
+
+@using (Ajax.BeginForm("Index", "Tenders", new AjaxOptions() {HttpMethod = "GET", UpdateTargetId = "procurementResult", InsertionMode = InsertionMode.Replace}))
+{
+    <div class="row">
+        <div id="blocks" class="col-xs-12 form-group">
+            @if (Model != null)
+            {
+                Html.RenderPartial("Searches/Tenders/QueriesPartial", Model.Query);
+            }
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-xs-12">
+            <button id="search" type="submit" class="btn btn-default btn-lg col-xs-12 square-background-blue">@GlobalRes.Search</button>
+        </div>
+    </div>
+}
+
+
+<div id="procurementResult">
+    @{
+        Html.RenderPartial("Searches/Tenders/TenderTable", Model);
+    }
+</div>
+
+
+@*@section scripts{*@
+
+@Scripts.Render("~/bundles/tenders/query-blocks")
+@Scripts.Render("~/bundles/query-blocks-url-pushstate")
+@Scripts.Render("~/bundles/kendo-ui-configuration")
+<script src="~/Scripts/custom/kendo-period-datetimepicker.js"></script>
+
+<script>
+    $('#@Html.IdFor(m => m.Query.ApplicationsSubmissionPeriod)').on('click', initApplicationsSubmissionPeriod);
+    $('#@Html.IdFor(m => m.Query.ClarificationPeriod)').on('click', initClarificationPeriod);
+    $('#@Html.IdFor(m => m.Query.AuctionPeriod)').on('click', initAuctionPeriod);
+    $('#@Html.IdFor(m => m.Query.QualificationPeriod)').on('click', initQualificationPeriod);
+
+    function initApplicationsSubmissionPeriod(e) {
+        disableDatePeriodButton(e);
+
+        initDateTimePickersPeriod('#ApplicationsSubmissionPeriod_StartDate',
+            '#ApplicationsSubmissionPeriod_EndDate');
+    }
+
+    function initClarificationPeriod(e) {
+        disableDatePeriodButton(e);
+        initDateTimePickersPeriod('#ClarificationPeriod_StartDate', '#ClarificationPeriod_EndDate');
+    }
+
+    function initAuctionPeriod(e) {
+        disableDatePeriodButton(e);
+        initDateTimePickersPeriod('#AuctionPeriod_StartDate', '#AuctionPeriod_EndDate');
+    }
+
+    function initQualificationPeriod(e) {
+        disableDatePeriodButton(e);
+        initDateTimePickersPeriod('#QualificationPeriod_StartDate', '#QualificationPeriod_EndDate');
+    }
+</script>
+@*}*@

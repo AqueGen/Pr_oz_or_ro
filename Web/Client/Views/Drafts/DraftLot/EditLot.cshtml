@@ -1,0 +1,115 @@
+@using Kapitalist.Data.Models
+@using Kapitalist.Web.Resources
+@model Kapitalist.Web.Client.ViewModels.Drafts.DraftLotViewModel
+
+<div class="container header-and-body-content">
+    <h2>@GlobalRes.EditLot.</h2>
+
+    @using (Html.BeginForm("EditLot", "DraftLot", FormMethod.Post, new {@class = "form-horizontal", role = "form"}))
+    {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true, "", new {@class = "text-danger"})
+
+        @Html.HiddenFor(m => m.TenderGuid)
+        @Html.HiddenFor(m => m.StringId)
+
+        <div class="form-group">
+            <label class="col-md-3 control-label">@GlobalRes.Title</label>
+            <div class="col-md-9">
+                @Html.TextBoxFor(m => m.Title, null, new {@class = "form-control"})
+                @Html.ValidationMessageFor(m => m.Title, "", new {@class = "text-danger"})
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-md-3 control-label">@GlobalRes.Description</label>
+            <div class="col-md-9">
+                @Html.TextBoxFor(m => m.Description, null, new {@class = "form-control"})
+                @Html.ValidationMessageFor(m => m.Description, "", new {@class = "text-danger"})
+            </div>
+        </div>
+
+        <div>
+            <div class="col-md-3 control-label">
+                <h3>@GlobalRes.Procurement</h3>
+            </div>
+            <div class="clearfix"></div>
+            <div class="form-group">
+                <label class="col-md-3 control-label">@GlobalRes.Amount</label>
+                <div class="col-md-9">
+                    @Html.EditorFor(m => m.Value.Amount, null, new { htmlAttributes = new { @class = "currency" } })
+                    @Html.ValidationMessageFor(m => m.Value.Amount, "", new {@class = "text-danger"})
+                </div>
+            </div>
+        </div>
+
+        <div>
+            <div class="col-md-3 control-label">
+                <h3>@GlobalRes.Guarantee</h3>
+            </div>
+            <div class="clearfix"></div>
+            <div class="form-group">
+                <label class="col-md-3 control-label">@GlobalRes.Amount</label>
+                <div class="col-md-9">
+                    @Html.EditorFor(m => m.Guarantee.Amount, null, new { htmlAttributes = new { @class = "currency" } })
+                    @Html.ValidationMessageFor(m => m.Guarantee.Amount, "", new {@class = "text-danger"})
+                </div>
+            </div>
+        </div>
+
+        <div>
+            <div class="col-md-3 control-label">
+                <h3>@GlobalRes.MinimalStep</h3>
+            </div>
+            <div class="clearfix"></div>
+            <div class="form-group">
+                <label class="col-md-3 control-label">@GlobalRes.Amount</label>
+                <div class="col-md-9">
+                    <div>
+                        @Html.EditorFor(m => m.MinimalStep.Amount, null, new { htmlAttributes = new { @class = "currency" } })
+                        @Html.EditorFor(m => m.MinimalStep.Percentage, null, new { htmlAttributes = new { @class = "percent" } })
+                    </div>
+                    <div>
+                        @Html.ValidationMessageFor(m => m.MinimalStep.Amount, "", new { @class = "text-danger" })
+                        @Html.ValidationMessageFor(m => m.MinimalStep.Percentage, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-offset-3 col-md-9">
+            <a href="@Url.Action("Info", "DraftTenderInfo", new {tenderGuid = Model.TenderGuid})" class="btn btn-default col-xs-12 col-md-3 square-background-yellow btn-lg">@GlobalRes.Cancel</a>
+            <input type="submit" value="@GlobalRes.Save" class="btn btn-default col-xs-12 col-md-3 square-background-blue btn-lg"/>
+        </div>
+    }
+</div>
+
+@section scripts{
+    @Scripts.Render("~/bundles/kendo-ui-configuration")
+
+    <script src="~/Scripts/custom/minimalstep-percentage.js"></script>
+    <script>
+        $("#@Html.IdFor(m => m.Value.Amount)")
+            .on('change',
+                function() {
+                    ToPercentage("#@Html.IdFor(m => m.Value.Amount)",
+                        "#@Html.IdFor(m => m.MinimalStep.Amount)",
+                        "#@Html.IdFor(m => m.MinimalStep.Percentage)");
+                });
+
+        $("#@Html.IdFor(m => m.MinimalStep.Amount)")
+            .on('change',
+                function() {
+                    ToPercentage("#@Html.IdFor(m => m.Value.Amount)",
+                        "#@Html.IdFor(m => m.MinimalStep.Amount)",
+                        "#@Html.IdFor(m => m.MinimalStep.Percentage)");
+                });
+
+        $("#@Html.IdFor(m => m.MinimalStep.Percentage)")
+            .on('change',
+                function() {
+                    ToValue("#@Html.IdFor(m => m.Value.Amount)",
+                        "#@Html.IdFor(m => m.MinimalStep.Amount)",
+                        "#@Html.IdFor(m => m.MinimalStep.Percentage)");
+                });
+    </script>
+}

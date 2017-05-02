@@ -1,0 +1,49 @@
+﻿@using Kapitalist.Web.Framework.Helpers
+@using PagedList.Mvc
+@model Kapitalist.Web.Client.ViewModels.Tenders.TendersViewModel
+
+
+
+@if (Model?.Tenders.Count > 0)
+{
+    <div class="table-responsive" style="padding-top: 15px;">
+        <div>
+            @Html.PagedListPager(Model.Tenders, PageNumber => Url.Action("Index", "Tenders", new { PageNumber }) + "&" + Model.Query.ToHttpDictionary(),
+           PagedListRenderOptions.EnableUnobtrusiveAjaxReplacing(PagedListRenderOptions.ClassicPlusFirstAndLast, new AjaxOptions {UpdateTargetId = "procurementResult"}))
+        </div>
+        <table id="tender-table" class="table table-bordered">
+            <thead>
+                <tr>
+                    <th></th>
+                    <th>Конкретна назва предмету закупівлі</th>
+                    <th>Загальні відомості про закупівлю</th>
+                    <th>Період запитань</th>
+                    <th>Прийом пропозіцій</th>
+                    <th>Період аукціону</th>
+                    <th>Статус</th>
+                    <th>Тип тендеру</th>
+                    <th>Очікувана вартість закупівлі</th>
+                    <th>Найменування замовника</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var tender in Model.Tenders)
+                {
+                    <tr>
+                        <td><a href="@Url.Action("Info", "TenderInfo", new {tenderGuid = tender.Guid})" class="btn btn-default">Детальніше</a></td>
+                        <td>@tender.Title</td>
+                        <td>@tender.Description</td>
+                        <td>@Html.FormatDateTime(tender.EnquiryPeriod.StartDate) - @Html.FormatDateTime(tender.EnquiryPeriod.EndDate)</td>
+                        <td>@Html.FormatDateTime(tender.TenderPeriod.StartDate) - @Html.FormatDateTime(tender.TenderPeriod.EndDate)</td>
+                        <td>@Html.FormatDateTime(tender.AuctionPeriod.StartDate) - @Html.FormatDateTime(tender.AuctionPeriod.EndDate)</td>
+                        <td>@tender.Status</td>
+                        <td>@tender.ProcurementMethodType</td>
+                        <td>@tender.Value.Amount @tender.Value.Currency</td>
+                        <td>@tender.Owner</td>            
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+    </div>
+}

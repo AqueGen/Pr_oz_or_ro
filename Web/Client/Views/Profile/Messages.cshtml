@@ -1,0 +1,27 @@
+﻿@model Kapitalist.Web.Client.ViewModels.Profile.MessageViewModel
+
+
+<div class="container">
+	<div class="">
+		<h2>Сообщения</h2>
+	</div>
+	<table class="table table-bordered">
+		<thead>
+		<tr>
+			<th>От кого</th>
+			<th>Дата</th>
+			<th>Сообщение</th>
+		</tr>
+		</thead>
+		<tbody>
+		@for (int i = 1; i < 15; i++) //for test
+		{
+			<tr>
+				<td>Администратор</td>
+				<td>@i-06-2016, 15:00</td>
+				<td>тестовое сообщение</td>
+			</tr>
+		}
+		</tbody>
+	</table>
+</div>

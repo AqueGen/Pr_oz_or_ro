@@ -1,0 +1,40 @@
+﻿@using PagedList.Mvc
+@model Kapitalist.Web.Client.ViewModels.Plans.PlansViewModel
+
+@if (Model?.Plans.Count > 0)
+{
+    <div class="table-responsive" style="padding-top: 15px;">
+        <div>
+            @Html.PagedListPager(Model.Plans, PageNumber => Url.Action("Index", "Plans", new { PageNumber }) + "&" + Model.Query.ToHttpDictionary(),
+           PagedListRenderOptions.EnableUnobtrusiveAjaxReplacing(PagedListRenderOptions.ClassicPlusFirstAndLast, new AjaxOptions { UpdateTargetId = "procurementResult" }))
+        </div>
+        <table id="tender-table" class="table table-bordered">
+            <thead>
+                <tr>
+                    <th></th>
+                    <th>Замовник</th>
+                    <th>CPV/ДКПП</th>
+                    <th>Предмет</th>
+                    <th>Сума</th>
+                    <th>Статус</th>
+                    <th>Планова дата</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.Plans)
+                {
+                    <tr>
+                        <td><a href="@Url.Content($"Plan/{item.Guid}/Details")" class="btn btn-default">Детальніше</a></td>
+                        <td>@item.Owner</td>
+                        <td>@item.Identifier</td>
+                        <td>@item.Budget.Description</td>
+                        <td>@item.Tender.Status</td>
+                        <td>@item.Budget.Amount @item.Budget.Currency</td>
+                        <td>@Html.FormatDateTime(item.Tender.TenderPeriod.StartDate) - @Html.FormatDateTime(item.Tender.TenderPeriod.EndDate)</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+    </div>
+}

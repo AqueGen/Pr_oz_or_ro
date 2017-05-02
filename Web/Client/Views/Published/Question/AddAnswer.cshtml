@@ -1,0 +1,55 @@
+﻿@using Kapitalist.Web.Resources
+@model Kapitalist.Web.Client.ViewModels.Published.QuestionViewModel
+
+
+<div class="container header-and-body-content">
+    <h2>@GlobalRes.AddAnswer.</h2>
+
+    @using (Html.BeginForm("AddAnswer", "Question", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+    {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true, "", new {@class = "text-danger"})
+
+        <div>
+            @Html.HiddenFor(m => m.StringId)
+            @Html.HiddenFor(m => m.RelatedGuid)
+            @Html.HiddenFor(m => m.QuestionOf)
+            @Html.HiddenFor(m => m.Date)
+            @Html.HiddenFor(m => m.Title)
+            @Html.HiddenFor(m => m.Description)
+
+
+            <div class="row">
+                <div class="col-xs-3">@GlobalRes.Date:</div>
+                <div class="col-xs-9">
+                    <span class="">@Html.DisplayFor(m => m.Date)</span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-3">@GlobalRes.Title:</div>
+                <div class="col-xs-9">
+                     <span class="">@Html.DisplayTextFor(m => m.Title)</span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-3">@GlobalRes.Question:</div>
+                <div class="col-xs-9">
+                     <span class="">@Html.DisplayTextFor(m => m.Description)</span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-3">@GlobalRes.Answer:</div>
+                <div class="col-md-9">
+                    @Html.TextAreaFor(m => m.Answer, new {@class = "form-control", style = "resize: vertical;"})
+                    @Html.ValidationMessageFor(m => m.Answer, "", new {@class = "text-danger"})
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-3 col-md-9">
+                <a href="@Url.Action("Info", "TenderInfo", new {tenderGuid = Model.TenderGuid})" class="btn btn-default col-xs-12 col-md-3 square-background-yellow btn-lg">@GlobalRes.Cancel</a>
+                <input type="submit" value="@GlobalRes.Save" class="btn btn-default col-xs-12 col-md-3 square-background-blue btn-lg" />
+            </div>
+        </div>
+    }
+</div>

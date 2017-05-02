@@ -1,0 +1,61 @@
+﻿@{
+    ViewBag.Title = "Адміністративна панель";
+}
+
+<h2>@ViewBag.Title</h2>
+<hr />
+    <h3>Управління ролями:</h3>
+    <div class="content">
+        <ul>
+            <li>@Html.ActionLink("Список ролей", "Index", "Role")</li>
+        </ul>
+    </div>
+    @*<hr />
+<h3>Облікові записи:</h3>
+
+<div class="content">
+    <ul>
+        @if (User.IsInRole("SeniorAdministrator"))
+        {
+            <li>@Html.ActionLink("Старший адміністратор", "ManageHeadAdmin", new { roleName = "HeadAdmin" })</li>
+            <li>@Html.ActionLink("Адміністратор", "ManageAdmin", new { roleName = "Admin" })</li>
+            <li>@Html.ActionLink("Не авторизований користувач", "ManageExchangeMember", new { roleName = "ExchangeMember" })</li>
+            <li>@Html.ActionLink("Авторизований користувач", "ManageBroker", new { roleName = "Broker" })</li>
+        }
+        @if (User.IsInRole("Administrator"))
+        {
+            <li>@Html.ActionLink("Не авторизований користувач", "ManageExchangeMember", new { roleName = "ExchangeMember" })</li>
+            <li>@Html.ActionLink("Авторизований користувач", "ManageBroker", new { roleName = "Broker" })</li>
+        }
+
+    </ul>
+</div>
+@if (User.IsInRole("SeniorAdministrator"))
+{
+    <hr />
+    <h3>Журнал адміністративних дій:</h3>
+
+    <div class="content">
+        <ul>
+            <li>@Html.ActionLink("Журнал адміністративних дій", "Index", "AdminEventLog")</li>
+        </ul>
+    </div>
+}
+
+    <hr />
+    <h3>Повідомлення:</h3>
+
+    <div class="content">
+        <ul>
+            <li>@Html.ActionLink("Управління повідомленнями", "Manage", "Message")</li>
+        </ul>
+    </div>
+
+    <hr />
+    <h3>Конфігурація системи:</h3>
+
+    <div class="content">
+        <ul>
+            <li>@Html.ActionLink("Конфігурація системи", "Edit", "ApplicationConfig")</li>
+        </ul>
+    </div>*@

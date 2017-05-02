@@ -1,0 +1,35 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.Mvc;
+<<<<<<< .merge_file_a10532
+using System.Web.Optimization;
+using System.Web.Routing;
+=======
+using System.Web.Mvc.Html;
+using System.Web.Optimization;
+using System.Web.Routing;
+using Web.Framework.Attributes;
+>>>>>>> .merge_file_a01832
+
+namespace Web.Client
+{
+    public class MvcApplication : System.Web.HttpApplication
+    {
+        protected void Application_Start()
+        {
+            AreaRegistration.RegisterAllAreas();
+            FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
+            RouteConfig.RegisterRoutes(RouteTable.Routes);
+            BundleConfig.RegisterBundles(BundleTable.Bundles);
+<<<<<<< .merge_file_a10532
+        }
+=======
+			LocalizationProvider.Register();
+		}
+>>>>>>> .merge_file_a01832
+
+
+    }
+}

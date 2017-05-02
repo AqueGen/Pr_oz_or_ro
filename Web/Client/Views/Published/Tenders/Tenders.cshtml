@@ -1,0 +1,14 @@
+﻿@model Kapitalist.Web.Client.ViewModels.Tenders.TendersViewModel
+
+@if (User.Identity.IsAuthenticated)
+{
+    <div class="container">
+        <a href="@Url.Action("Type", "DraftTenderSwitch")" class="btn btn-default col-xs-12 col-md-3 square-background-yellow btn-lg">Створити закупівлю</a>
+    </div>
+}
+<div class="container-fluid">
+
+    @{
+        Html.RenderPartial("Searches/Tenders/SearchPanel", Model);
+    }
+</div>

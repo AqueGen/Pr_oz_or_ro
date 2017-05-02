@@ -1,0 +1,18 @@
+﻿@using Kapitalist.Web.Framework.Enums
+@using Kapitalist.Web.Framework.Helpers.Enums
+@using Kapitalist.Web.Resources
+@model Kapitalist.Web.Client.ViewModels.Profile.PersonalViewModel
+
+<div class="container">
+    <h2>@GlobalRes.PersonalCabinet.</h2>
+    <h3>@GlobalRes.PersonalData.</h3>
+    <div>
+        <div class="form-group">
+            <div class="col-md-offset-3 col-md-9">
+                <a href="@Url.Action("Edit", "Profile")" class="btn btn-default col-xs-12 col-md-6 square-background-blue">@GlobalRes.ChangeProfile</a>
+                <a href="@Url.Action("ChangePassword", "Profile")" class="btn btn-default col-xs-12 col-md-6 square-background-blue">@GlobalRes.ChangePassword</a>
+                <a href="@Url.Action("Index", "Profile")" class="btn btn-default col-xs-12 col-md-12 square-background-blue">@GlobalRes.NavigateToCabinet</a>
+            </div>
+        </div>
+    </div>
+</div>

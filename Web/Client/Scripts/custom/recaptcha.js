@@ -1,0 +1,3 @@
+﻿function correctCaptcha() {
+    $('#submitBtn').show();
+}

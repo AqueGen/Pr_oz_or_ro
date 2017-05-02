@@ -1,0 +1,19 @@
+﻿@using Kapitalist.Web.Resources
+@model string
+@{
+    // ViewBag.Title will be used as e-mail subject
+    ViewBag.Title = GlobalRes.SiteTitle + ": " + GlobalRes.ConfirmEmail;
+    Layout = "~/Views/Shared/Mails/_Layout.cshtml";
+}
+
+@*Use PlainText section if you wish to send plain copy to e-mail what cannot display html mails*@
+@section PlainText{
+    @GlobalRes.ToConfirmEmail @GlobalRes.FollowThisLink:
+    @Model
+}
+
+@*If e-mail supports html - next content will be displayed*@
+<h3>@GlobalRes.EmailConfirmation</h3>
+<br/>
+<p>@GlobalRes.ToConfirmEmail @GlobalRes.ClickNextButton</p>
+<a class="btn btn-default" role="button" href="@Model">@GlobalRes.Confirm</a>

@@ -1,0 +1,36 @@
+﻿@model Kapitalist.Web.Client.ViewModels.Drafts.DraftPlanViewModel
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container header-and-body-content">
+    <h2>Створити План.</h2>
+    <h3>Крок 1 з 3</h3>
+    @using (Html.BeginForm("AddPlan", "DraftPlan", FormMethod.Post, new {@class = "form-horizontal", role = "form"}))
+    {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true, "", new {@class = "text-danger"})
+
+        @Html.HiddenFor(m => m.Guid)
+
+
+        Html.RenderPartial("Plan/DraftPlanViewModelPartial", Model);
+        //Html.RenderPartial("Plan/PlanTenderPartial", Model);
+        //Html.RenderPartial("Plan/BudgetPartial", Model.Budget);
+
+
+        <div class="form-group">
+            <div class="col-md-offset-3 col-md-9">
+                <input type="submit" value="Сохранить" class="btn btn-default col-xs-12 col-md-3 square-background-blue btn-lg"/>
+            </div>
+        </div>
+    }
+</div>
+
+@Scripts.Render("~/bundles/tender/create")
+@Scripts.Render("~/bundles/kendo-ui-configuration")
+<script>
+    initDateTimePickersPeriod('#@Html.IdFor(m => m.Tender.TenderPeriod.StartDate)',
+        '#@Html.IdFor(m => m.Tender.TenderPeriod.EndDate)')
+</script>

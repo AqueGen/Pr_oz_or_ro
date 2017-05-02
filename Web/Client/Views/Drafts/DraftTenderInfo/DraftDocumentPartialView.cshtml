@@ -1,0 +1,28 @@
+﻿@using Kapitalist.Web.Client.Helpers.Html
+@model IEnumerable<Kapitalist.Web.Client.Interfaces.IDraftDocumentViewModel>
+
+@if (Model != null && Model.Any())
+{
+    <div>
+        <fieldset>
+            <legend>@GlobalRes.Documents</legend>
+            @foreach (var document in Model)
+            {
+                <div class="col-md-10">
+                    <div class="col-md-12">
+                        <span class="col-md-4">@GlobalRes.Title:</span>
+                        <span class="col-md-8" name="@Html.NameFor(m => document.Title)">@document.Title</span>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <a href="@Url.Action("EditDocument", "DraftDocument", new {tenderGuid = document.TenderGuid, documentId = document.StringId})" class="btn btn-default">
+                        <i class="fa fa-pencil" aria-hidden="true"></i>
+                    </a>
+                    @Ajax.DeleteActionLink("", "DeleteDocument", new {controller = "DraftDocument", action = "DeleteDocument", tenderGuid = document.TenderGuid, documentId = document.StringId},
+                        new AjaxOptions {HttpMethod = "POST", Confirm = GlobalRes.Confirm, OnComplete = "location.reload()"},
+                        new {@class = "btn btn-default"})
+                </div>
+            }
+        </fieldset>
+    </div>
+}

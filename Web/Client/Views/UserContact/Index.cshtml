@@ -1,0 +1,65 @@
+﻿@using Kapitalist.Web.Client.Helpers.Html
+@model IEnumerable<Kapitalist.Web.Client.ViewModels.ContactViewModel>
+<div class="container header-and-body-content">
+    <fieldset>
+        <legend>@GlobalRes.Contacts</legend>
+
+        <div>
+            <a href="@Url.Action("Add", "UserContact")" class="btn new-item-btn">
+                <i class="fa fa-plus-circle"></i>@GlobalRes.AddContact
+            </a>
+        </div>
+
+
+        @if (Model != null && Model.Any())
+        {
+            <table class="table">
+                @foreach (var contact in Model)
+                {
+                    <tr>
+                        <td>
+                            <div class="col-md-10">
+                                <div class="col-md-12">
+                                    <span class="col-md-4">@GlobalRes.Name:</span>
+                                    <span class="col-md-8" name="@Html.NameFor(m => contact.Name)">@contact.Name</span>
+                                </div>
+                                <div class="col-md-12">
+                                    <span class="col-md-4">@GlobalRes.NameEn:</span>
+                                    <span class="col-md-8" name="@Html.NameFor(m => contact.NameEn)">@contact.NameEn</span>
+                                </div>
+                                <div class="col-md-12">
+                                    <span class="col-md-4">@GlobalRes.Language:</span>
+                                    <span class="col-md-8" name="@Html.NameFor(m => contact.Language)">@contact.Language</span>
+                                </div>
+                                <div class="col-md-12">
+                                    <span class="col-md-4">@GlobalRes.Email:</span>
+                                    <span class="col-md-8" name="@Html.NameFor(m => contact.Email)">@contact.Email</span>
+                                </div>
+                                <div class="col-md-12">
+                                    <span class="col-md-4">@GlobalRes.Site:</span>
+                                    <span class="col-md-8" name="@Html.NameFor(m => contact.Url)">@contact.Url</span>
+                                </div>
+                                <div class="col-md-12">
+                                    <span class="col-md-4">@GlobalRes.Telephone:</span>
+                                    <span class="col-md-8" name="@Html.NameFor(m => contact.Telephone)">@contact.Telephone</span>
+                                </div>
+                                <div class="col-md-12">
+                                    <span class="col-md-4">@GlobalRes.Fax:</span>
+                                    <span class="col-md-8" name="@Html.NameFor(m => contact.FaxNumber)">@contact.FaxNumber</span>
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <a href="@Url.Action("Edit", "UserContact", new {contactId = contact.Id})" class="btn btn-default">
+                                    <i class="fa fa-pencil" aria-hidden="true"></i>
+                                </a>
+                                @Ajax.DeleteActionLink("", "Delete", new { controller = "UserContact", action = "Delete", contactId = contact.Id },
+                                new AjaxOptions { HttpMethod = "POST", Confirm = GlobalRes.Confirm, OnComplete = "location.reload()" },
+                                new { @class = "btn btn-default" })
+                            </div>
+                        </td>
+                    </tr>
+                }
+            </table>
+        }
+    </fieldset>
+</div>

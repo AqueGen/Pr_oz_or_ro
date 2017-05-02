@@ -1,0 +1,26 @@
+﻿@using Kapitalist.Web.Framework.Helpers
+@{
+    Layout = null;
+    if (ViewBag.Title == null) {
+        ViewBag.Title = "E-Capital";
+    }
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    @Styles.Render("~/Content/bootstrap")
+    @*@Styles.Render("~/Content/font-awesome")
+    @Styles.Render("~/Content/kendo-ui")*@
+    @Styles.Render("~/Content/Site")
+</head>
+
+<body style="padding: 10px 20px 0px 20px; font-family: Arial, Helvetica, sans-serif; font-size: 13px; color:#666;">
+    @RenderBody()
+    @Html.Partial("~/Views/Shared/Mails/Sign.cshtml")
+    @this.RenderPlainText(Html.Partial("~/Views/Shared/Mails/PlainSign.cshtml"))
+</body>
+</html>

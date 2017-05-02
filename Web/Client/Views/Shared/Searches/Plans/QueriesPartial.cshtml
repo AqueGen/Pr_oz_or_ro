@@ -1,0 +1,31 @@
+﻿@using Kapitalist.Web.Client.Helpers.Html
+@model Kapitalist.Web.Client.ViewModels.Plans.PlanQueryViewModel
+
+
+@foreach (var query in QueryHelper.ToQueryList(@Request.Url.Query))
+{
+    <div>@Html.GenerateQueryComponentString(query.Key, query.Value)</div>
+}
+@if (Model != null)
+{
+    if (Model.ProcedurePeriod != null)
+    {
+        Html.RenderPartial("Searches/QueryComponents/ProcedurePeriodPartial", Model);
+    }
+}
+
+
+
+@*@if (Model != null)
+{
+    if (Model.Keyword != null)
+    {
+        foreach (var item in Model.Keyword)
+        {
+
+            //Html.RenderPartial("Searches/QueryComponents/KeywordPartial", item);
+        }
+        <span></span>
+    }
+}*@
+

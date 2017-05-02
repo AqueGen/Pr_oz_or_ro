@@ -1,0 +1,34 @@
+﻿@using Kapitalist.Web.Resources
+<div class="container">
+    <h2>@GlobalRes.PersonalCabinet.</h2>
+
+    <div class="form-horizontal col-xs-8">
+        Тут какая то информация. Например информация о профиле, сообщениях, краткая инфа о заявках и т.д.
+    </div>
+
+    <div class="form-horizontal col-xs-4">
+        <div class="form-group">
+            <a href="@Url.Action("Personal", "Profile")" class="btn btn-default col-xs-12 square-background-blue">@GlobalRes.ProfileSettings</a>
+        </div>
+        <div class="form-group">
+            <a href="@Url.Action("Index", "UserContact")" class="btn btn-default col-xs-12 square-background-blue">Контакти організації</a>
+        </div>
+        <div class="form-group">
+            <a href="@Url.Action("Messages", "Profile")" class="btn btn-default col-xs-12 square-background-blue">@GlobalRes.Messages</a>
+        </div>
+        <div class="form-group">
+            <a href="@Url.Action("MyTenderDrafts", "Profile")" class="btn btn-default col-xs-12 square-background-blue">Мои черновики тендеров</a>
+        </div>
+        <div class="form-group">
+            <a href="@Url.Action("MyTenders", "Profile")" class="btn btn-default col-xs-12 square-background-blue">Мои тендера</a>
+        </div>
+        <div class="form-group">
+            <a href="@Url.Action("MyPlanDrafts", "Profile")" class="btn btn-default col-xs-12 square-background-blue">Мои черновики планов</a>
+        </div>
+        <div class="form-group">
+            <a href="@Url.Action("MemberTenders", "Profile")" class="btn btn-default col-xs-12 square-background-blue">Мои планы</a>
+        </div>
+
+    </div>
+</div>
+

@@ -1,0 +1,38 @@
+﻿@model Kapitalist.Web.Client.ViewModels.Drafts.DraftPlanItemsViewModel
+
+    <div class="container header-and-body-content">
+        <h2>Об'єкти закупівлі.</h2>
+        <h3>Крок 2 з 3</h3>
+
+        <a href="@Url.Action("AddItem", "DraftPlan", new {planGuid = Model.PlanGuid})" class="btn new-item-btn"><i class="fa fa-plus-circle"></i>Добавить обьект закупки</a>
+
+        <hr />
+       
+        @if (Model?.Items != null)
+        {
+            <div>
+                <h3>Объекты закупки:</h3>
+
+                @foreach (var item in Model.Items)
+                {
+                    <div>
+                        <div class="row">
+                            <div class="col-md-3">Описание:</div>
+                            <div class="col-md-9">@item.Description</div>
+                        </div>
+
+                        <a href="@Url.Action("EditItem", "DraftPlan", new {planGuid = Model.PlanGuid, itemId = item.StringId})" class="">Редактировать</a>
+                    </div>
+                    <br />
+                }
+            </div>
+        }
+
+       
+        <div class="col-md-offset-3 col-md-9">
+            <a href="@Url.Action("EditPlan", "DraftPlan", new {planGuid = Model.PlanGuid})" class="btn btn-default col-xs-12 col-md-3 square-background-yellow btn-lg">Назад</a>
+            <a href="@Url.Action("TotalInformation", "DraftPlan", new {planGuid = Model.PlanGuid})" class="btn btn-default col-xs-12 col-md-3 square-background-blue btn-lg">Дальше</a>
+        </div>
+
+
+    </div>

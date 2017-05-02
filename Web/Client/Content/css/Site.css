@@ -1,0 +1,279 @@
+.choice-language-circle-inverse {
+	width: 30px;
+	height: 30px;
+	border: 3px solid;
+	border-radius: 50%;
+	border-color: white;
+	margin-top: -5px;
+}
+
+.choice-language-circle-selected-text-inverse {
+	position: relative;
+	top: 2px;
+	left: 3px;
+	font-size: 74%;
+	font-weight: bold;
+	font-family: inherit;
+	padding-right: 15px;
+	color: white;
+}
+
+.choice-language-circle-text-inverse {
+	position: relative;
+	top: 2px;
+	left: 3px;
+	font-size: 95%;
+	font-weight: bold;
+	font-family: inherit;
+	padding-right: 15px;
+	color: white;
+}
+
+
+.text-color-white {
+	color: white;
+}
+
+
+/*End Choice language button*/
+
+.not-active {
+   pointer-events: none;
+   cursor: default;
+}
+
+/*Vertical divider*/
+.navbar .divider-vertical {
+	height: 50px;
+	margin: 0 9px;
+	border-right: 1px solid #ffffff;
+	border-left: 1px solid #f2f2f2;
+}
+
+.navbar-inverse .divider-vertical {
+	border-right-color: #222222;
+	border-left-color: #111111;
+}
+
+@media (max-width: 767px) {
+	.navbar-collapse .nav > .divider-vertical {
+		display: none;
+	}
+}
+/*End Vertical divider*/
+
+/*Center position for image on top navbar*/
+.navbar .navbar-image {
+	float: left;
+	padding: 15px 15px;
+	font-size: 18px;
+	line-height: 20px;
+	height: 55px;
+}
+/*End Center position for image on top navbar*/
+
+/*Image on center*/
+.news {
+	background-position: center;
+	height: 400px;
+	max-height: 70vh;
+	width: auto;
+}
+
+.square {
+	border-style: solid; /* Стиль рамки вокруг параграфа */
+	border-width: thick;
+	padding: 10px; /* Поля вокруг текста */
+	font-size: 200%;
+}
+
+.less-by-65 {
+	font-size: 65%;
+	font-weight: normal;
+}
+
+.square-white {
+	border-color: white;
+}
+
+.square-yellow {
+	border-color: #f6ba29;
+}
+
+.square-background-blue {
+	background-color: #3d6d99;
+	border-radius: 0 !important;
+	color: white;
+	font-weight: bolder;
+}
+
+.square-background-yellow {
+	background-color: #f6ba29;
+	border-radius: 0 !important;
+	color: white;
+	font-weight: bolder;
+}
+
+.square-background-white {
+	background-color: white;
+	border-radius: 0 !important;
+	color: #333333;
+	font-weight: bolder;
+
+}
+
+
+.dropdown-menu
+ {
+  background-color: #222;
+  color:white;
+}
+
+.dropdown-menu > li > a:hover {
+	 background-color: #222;
+	 color:white;
+	 cursor: pointer;
+}
+
+
+
+
+
+/*Works with us*/
+
+.works-with-us {
+	color: #6c6c6c;
+	font-size: x-large;
+	padding-top: 25px;
+}
+
+.works-with-us-button {
+	color: #99ffff;
+	padding-top: 25px;
+}
+
+.works-with-us-image > li > img {
+	width: 125px;
+	height: 125px;
+}
+
+/*End Works with us*/
+
+/*Search button*/
+.dark-blue-button {
+	background-color: #3d6d99;
+	color: white;
+}
+
+.search-parameter-button {
+	background-color: #f6ba29;
+	color: white;
+	margin-top: 5px;
+	font-size: large;
+}
+/*End Search button*/
+
+/*Bottom navbar*/
+
+.navbar-bottom * {
+	color: white;
+}
+
+.header-and-body-content {
+	min-height: 100vh;
+	padding-top: 50px;
+	padding-bottom: 100px;
+	margin-bottom: -100px;
+}
+
+.footer {
+	background-color: #333;
+	padding-top: 15px;
+	min-height: 100px;
+	/*margin-top: 10px;*/
+}
+
+
+/*Paddings*/
+
+.top-buffer { margin-top:10px; }
+
+
+.header-text {
+	font-size: 130%;
+}
+
+.footer-text {
+	font-size: 120%;
+}
+
+
+.word-break {
+	-ms-word-break: break-all;
+	word-break: break-all;
+}
+
+
+
+/*Add btn Blocks*/
+.query-btn, 
+.new-item-btn {
+	color: #3d6d99;
+	border-radius: 0 !important;
+}
+
+.query-btn:hover, 
+.new-item-btn:hover{
+	background-color: #3d6d99;
+	color: white;
+}
+
+.query-btn > i, 
+.query-btn:hover > i, 
+.new-item-btn > i, 
+.new-item-btn:hover > i {
+	padding-right: 3px;
+}
+
+.query-btn > i, 
+.new-item-btn > i {
+	color: #f6ba29;
+}
+
+.query-btn:hover > i, 
+.new-item-btn:hover > i {
+	color: white;
+}
+
+
+.block{
+	padding-bottom: 2px; /*можно заменить на form-group, но отступы там великоваты*/
+}
+
+#blocks{
+}
+
+.delete{
+    cursor: pointer;
+}
+
+#query{
+    width: 300px;
+}
+
+
+.k-picker-wrap {
+	border-radius: 0;
+}
+
+.k-picker-wrap .k-select {
+	border-style: none;
+}
+
+
+li.k-item:hover {
+	background-color: #f6ba29;
+}
+
+
+.currency{}

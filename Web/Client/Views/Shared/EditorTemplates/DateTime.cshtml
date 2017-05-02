@@ -1,0 +1,4 @@
+﻿@model DateTime?
+
+<input id="@Html.IdFor(dateItem => dateItem)_Local" @*name="@Html.NameFor(dateItem => dateItem)"*@ class="form-control datetimepicker" data-date-format="g"/>
+@Html.HiddenFor(dateItem => dateItem, new { Value = Model.HasValue ? Model.Value.ToString("s") : null })
